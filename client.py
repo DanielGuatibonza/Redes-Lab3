@@ -6,7 +6,7 @@ HOST = sys.argv.pop() if len(sys.argv) == 3 else '127.0.0.1'
 
 s.connect ((HOST, PORT))
 print ('Client has been assigned socket name.' , s.getsockname())
-s.sendall ('Hi there, server.')
+s.sendall ('Hi there, server.'.encode())
 reply = recv_all (s, 16)
 print ('The server said', repr(reply))
 s.close()

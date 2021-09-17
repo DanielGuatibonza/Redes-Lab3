@@ -17,7 +17,7 @@ while True:
     print ('Socket connects', sc.getsockname(), 'and', sc.getpeername())
     message = recv_all (sc, 16)
     print ('The incoming sixteen-octet message says.py', repr(message))
-    sc.sendall('Farewell client.')
+    sc.sendall('Farewell client.'.encode())
     sc.close()
     print ('Reply sent, socket closed.')
 
