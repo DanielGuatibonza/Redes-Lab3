@@ -1,9 +1,7 @@
 import socket, sys
 from settings import *
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-HOST = input ('Ingrese la dirección IP del servidor: ')
-PORT = input ('Ingrese el puerto del servidor: ')
 num_clientes = int(input('Ingrese el número de clientes a generar: '))
 
 def recibir_archivo(i):
@@ -16,5 +14,7 @@ def recibir_archivo(i):
     s.close()
 
 pool = ThreadPoolExecutor(max_workers=25)
-for i in range(num_clientes):
-    pool.submit(recibir_archivo, i+1)
+futures = {pool.submit(recibir_archivo, i) for i in range(num_clientes)}
+
+for fut in as_completed(futures):
+    print(f"The outcome is {fut.result()}")
