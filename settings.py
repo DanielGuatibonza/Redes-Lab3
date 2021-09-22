@@ -6,7 +6,7 @@ def recv_all (sock, length):
     while len(data) < length:
         more = (sock.recv(length - len(data))).decode()
         if not more:
-            raise EOFError ('Socket closed %d bytes into a %d-byte message')
+            raise EOFError ('Socket cerrado.')
         data += more
 
     return data
