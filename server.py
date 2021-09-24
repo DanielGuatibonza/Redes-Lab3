@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import socket, sys
 from settings import *
+import hashlib
 
 sockets_clientes = {}
 
@@ -26,17 +27,26 @@ def iniciar_protocolo():
     sc.sendall(CLIENTE_ACEPTADO.encode())
     sockets_clientes[message.split(':')[1]] = sc
     return len(sockets_clientes)
-        
-with ThreadPoolExecutor(max_workers=25) as pool:
-    futures = {pool.submit(iniciar_protocolo) for _ in range(25)}
-    for fut in as_completed(futures):
-        print(f"La salida es {fut.result()}")
-    for socket_cliente in sockets_clientes.values():
-        f = open(nombre_archivo, "rb")
+
+def enviar_archivo(socket_cliente):
+    global nombre_archivo
+    with open(nombre_archivo, "rb") as f:
         l = f.read(1024)
         while (l):
-            socket_cliente.send(l)
+            print(socket_cliente.send(l, socket.MSG_TRUNC))
             l = f.read(1024)
+    with open(nombre_archivo, "r") as f:
+        data = f.read()
+        hash_data = hashlib.sha256(data.encode()).hexdigest()
+        socket_cliente.send(hash_data.encode())
         ack = recv_all(socket_cliente, len(ARCHIVO_RECIBIDO))
-        print('El cliente ' + socket_cliente.getpeername() + ' respondió ' + ack)
-        socket_cliente.close()
+        print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
+    socket_cliente.close()
+        
+with ThreadPoolExecutor(max_workers=25) as pool:
+    futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
+    for fut in as_completed(futures):
+        print(f"La salida es {fut.result()}")
+    futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
+    for fut in as_completed(futures):
+        print(f"La salida es {fut.result()}")
