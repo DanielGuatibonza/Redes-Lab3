@@ -10,11 +10,8 @@ HASH_INCORRECTO = 'La integridad del archivo s ha visto comprometida.'
 def recv_all(sock, length):
     data = ''
     while len(data) < length:
-        packet = sock.recv(length - len(data), socket.MSG_TRUNC)
-        print(packet)
-        print(len(packet))
+        packet = sock.recv(length - len(data))
         more = packet.decode()
-        print(more)
         if not more:
             raise EOFError ('Socket cerrado.')
         data += more
