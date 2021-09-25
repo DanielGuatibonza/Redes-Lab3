@@ -10,9 +10,10 @@ nombre_archivo = 'ArchivosServidor/file' + tamano_archivo + '.txt'
 num_clientes = input('Ingrese el número de clientes que solicitan el archivo: ')
 num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
-s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(25)
+s.settimeout(10000)
 print ('Escuchando en', s.getsockname())
 sc, sockname = s.accept()
 sc.sendall((num_clientes + ',' + tamano_archivo).encode())
