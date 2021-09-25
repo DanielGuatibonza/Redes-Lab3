@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import socket, sys
 from settings import *
-import hashlib
+import hashlib, types, selectors
 
 sockets_clientes = {}
 
@@ -20,7 +20,12 @@ sc.sendall((num_clientes + ',' + tamano_archivo).encode())
 
 def iniciar_protocolo():
     global sockets_clientes
+    sel = selectors.DefaultSelector()
     sc, sockname = s.accept()
+    sc.setblocking(False)
+    data = types.SimpleNamespace(addr=sockname, inb=b'', outb=b'')
+    events = selectors.EVENT_READ | selectors.EVENT_WRITE
+    sel.register(sc, events, data=data)
     print ('Se ha aceptado una conexión de', sockname)
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
