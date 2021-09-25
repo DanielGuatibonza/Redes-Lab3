@@ -33,7 +33,7 @@ def enviar_archivo(socket_cliente):
     with open(nombre_archivo, "rb") as f:
         l = f.read(1024)
         while (l):
-            print(socket_cliente.send(l, socket.MSG_TRUNC))
+            socket_cliente.send(l)
             l = f.read(1024)
     with open(nombre_archivo, "r") as f:
         data = f.read()
@@ -42,6 +42,7 @@ def enviar_archivo(socket_cliente):
         ack = recv_all(socket_cliente, len(ARCHIVO_RECIBIDO))
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
     socket_cliente.close()
+    return ack
         
 with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
@@ -49,4 +50,4 @@ with ThreadPoolExecutor(max_workers=25) as pool:
         print(f"La salida es {fut.result()}")
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
-        print(f"La salida es {fut.result()}")
+        print(f"El resultado del envío del archivo fue: {fut.result()}")

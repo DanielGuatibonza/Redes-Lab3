@@ -1,4 +1,5 @@
-HOST = '127.0.0.1'
+import socket
+HOST = '192.168.231.132'
 PORT = 8081
 
 CLIENTE_ACEPTADO = 'Su conexión fue exitosa.'
@@ -9,7 +10,9 @@ HASH_INCORRECTO = 'La integridad del archivo s ha visto comprometida.'
 def recv_all(sock, length):
     data = ''
     while len(data) < length:
-        more = (sock.recv(length - len(data))).decode()
+        packet = sock.recv(length - len(data), socket.MSG_TRUNC)
+        print(len(packet))
+        more = packet.decode()
         if not more:
             raise EOFError ('Socket cerrado.')
         data += more
