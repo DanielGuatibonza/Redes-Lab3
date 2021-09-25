@@ -153,5 +153,5 @@ has the PUSH flag set."""
                         
 
 if __name__ == "__main__" :
-    pc = pcap.pcap("eth0", promisc=True )
+    pc = pcap.pcap("ens33", promisc=True )
     main(pc)
