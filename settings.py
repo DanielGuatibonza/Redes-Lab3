@@ -1,5 +1,6 @@
 import socket
-HOST = '192.168.231.132'
+#HOST = '192.168.231.132'
+HOST = '127.0.0.1'
 PORT = 8081
 
 CLIENTE_ACEPTADO = 'Su conexión fue exitosa.'
