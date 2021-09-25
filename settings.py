@@ -11,6 +11,7 @@ def recv_all(sock, length):
     data = ''
     while len(data) < length:
         packet = sock.recv(length - len(data), socket.MSG_TRUNC)
+        print(packet)
         print(len(packet))
         more = packet.decode()
         if not more:
