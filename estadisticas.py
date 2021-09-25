@@ -60,7 +60,7 @@ def decode_tcp(pcap):
     connection_table = {}   # the keys of the table are the connection ID strings: source IP,
                             # source port, destination IP, destination port.  The values are a tuple which is the
                             # sequence number and a string which is the assembled stream
-
+    print(pcap)
     for ts, buf in pcap:
         packet_cntr += 1
         eth = dpkt.ethernet.Ethernet(buf)
