@@ -19,8 +19,9 @@ sc.sendall((num_clientes + ',' + tamano_archivo).encode())
 
 def capturar_paquetes():
     capture = pyshark.LiveCapture(interface='ens33', bpf_filter='ip.src == '+HOST)
-    paquetes = capture.sniff_continuously()
-    return paquetes
+    for pk in capture.sniff_continuously():
+        print(pk)
+    return capture
 
 def iniciar_protocolo():
     global sockets_clientes
