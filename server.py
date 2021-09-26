@@ -4,20 +4,23 @@ from settings import *
 import hashlib, pyshark
 
 sockets_clientes = {}
-capture = pyshark.LiveCapture(interface='ens33')
 
 tamano_archivo = input ("Ingrese el tamaño del archivo que requiere (MB): ")
 nombre_archivo = 'ArchivosServidor/file' + tamano_archivo + '.txt'
 num_clientes = input('Ingrese el número de clientes que solicitan el archivo: ')
 num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
-capture.sniff()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
 s.bind((HOST, PORT))
 s.listen(25)
 print ('Escuchando en', s.getsockname())
 sc, sockname = s.accept()
 sc.sendall((num_clientes + ',' + tamano_archivo).encode())
+
+def capturar_paquetes():
+    capture = pyshark.LiveCapture(interface='ens33', bpf_filter='ip.src == '+HOST)
+    paquetes = capture.sniff_continuously()
+    return paquetes
 
 def iniciar_protocolo():
     global sockets_clientes
@@ -47,12 +50,12 @@ def enviar_archivo(socket_cliente):
     return ack
         
 with ThreadPoolExecutor(max_workers=25) as pool:
+    captura = {pool.submit(capturar_paquetes)}
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
     for fut in as_completed(futures):
         print(f"La salida es {fut.result()}")
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
-capture.close()     
-print(len(capture._packets))
-print(capture._packets)
+    for cap in as_completed(captura):
+        print(f"El resultado de la captura fue: {cap.result()}")
