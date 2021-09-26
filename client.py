@@ -1,7 +1,7 @@
 import socket, sys
 from settings import *
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import hashlib, selectors, types
+import hashlib
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
@@ -14,16 +14,6 @@ s.close()
 def recibir_archivo(i):
     global tamano_archivo, num_clientes
     s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
-    sel = selectors.DefaultSelector()
-    s.setblocking(False)
-    s.connect_ex((HOST, PORT))
-    events = selectors.EVENT_READ | selectors.EVENT_WRITE
-    data = types.SimpleNamespace(connid=i,
-                                    #msg_total=sum(len(m) for m in messages),
-                                    recv_total=0,
-                                    #messages=list(messages),
-                                    outb=b'')
-    sel.register(s, events, data=data)
     s.connect ((HOST, PORT))
     print('Al cliente {} le fue asignado el socket con nombre {}'.format(i, s.getsockname()))
     identificador = str(i) if i >= 10 else '0'+str(i)
@@ -40,7 +30,6 @@ def recibir_archivo(i):
     else:
         s.sendall(HASH_INCORRECTO.encode())
     s.close()
-    print(data)
     return len(file_data)
 
 with ThreadPoolExecutor(max_workers=25) as pool:
