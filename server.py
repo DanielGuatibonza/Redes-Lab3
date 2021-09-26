@@ -18,8 +18,8 @@ sc, sockname = s.accept()
 sc.sendall((num_clientes + ',' + tamano_archivo).encode())
 
 def capturar_paquetes():
-    capture = pyshark.LiveCapture(interface='eth0')#, bpf_filter='ip.src == '+HOST)
-    for pk in capture.sniff_continuously():
+    capture = pyshark.LiveCapture(interface='ens33')#, bpf_filter='ip.src == '+HOST)
+    for pk in capture.sniff_continuously(timeout=30):
         print(pk)
     return capture
 
