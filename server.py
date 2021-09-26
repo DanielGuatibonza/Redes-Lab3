@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import socket, sys
 from settings import *
-import hashlib
+import hashlib, pyshark
 
 sockets_clientes = {}
 
