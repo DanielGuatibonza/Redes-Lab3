@@ -48,7 +48,8 @@ def enviar_archivo(socket_cliente):
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
     socket_cliente.close()
     return ack
-        
+
+paquetes = None
 with ThreadPoolExecutor(max_workers=25) as pool:
     captura = {pool.submit(capturar_paquetes)}
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
@@ -58,4 +59,7 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
     for cap in as_completed(captura):
+        # paquetes = cap.result()._packets
         print(f"El resultado de la captura fue: {cap.result()}")
+        for paquete in cap.result():
+            print(paquete)
