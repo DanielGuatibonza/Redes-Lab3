@@ -4,12 +4,14 @@ from settings import *
 import hashlib, pyshark
 
 sockets_clientes = {}
+capture = pyshark.LiveCapture(interface='ens33')
 
 tamano_archivo = input ("Ingrese el tamaño del archivo que requiere (MB): ")
 nombre_archivo = 'ArchivosServidor/file' + tamano_archivo + '.txt'
 num_clientes = input('Ingrese el número de clientes que solicitan el archivo: ')
 num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
+capture.sniff()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
 s.bind((HOST, PORT))
 s.listen(25)
@@ -51,3 +53,6 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
+capture.close()     
+print(len(capture._packets))
+print(capture._packets)
