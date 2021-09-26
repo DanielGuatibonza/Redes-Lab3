@@ -14,6 +14,6 @@ def recv_all(sock, length):
         packet = sock.recv(length - len(data))
         more = packet.decode()
         if not more:
-            raise EOFError('Socket cerrado.')
+            raise EOFError ('Socket cerrado.')
         data += more
     return data
