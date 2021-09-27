@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import socket, sys
 from settings import *
-import hashlib, pyshark
+import hashlib
 
 sockets_clientes = {}
 
@@ -16,12 +16,6 @@ s.listen(25)
 print ('Escuchando en', s.getsockname())
 sc, sockname = s.accept()
 sc.sendall((num_clientes + ',' + tamano_archivo).encode())
-
-def capturar_paquetes():
-    capture = pyshark.LiveCapture(interface='ens33')#, bpf_filter='ip.src == '+HOST)
-    for pk in capture.sniff(timeout=30):
-        print(pk)
-    return capture
 
 def iniciar_protocolo():
     global sockets_clientes
@@ -52,15 +46,9 @@ def enviar_archivo(socket_cliente):
 
 paquetes = None
 with ThreadPoolExecutor(max_workers=25) as pool:
-    captura = {pool.submit(capturar_paquetes)}
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
     for fut in as_completed(futures):
         print(f"La salida es {fut.result()}")
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
-    for cap in as_completed(captura):
-        # paquetes = cap.result()._packets
-        print(f"El resultado de la captura fue: {cap.result()}")
-        for paquete in cap.result():
-            print(paquete)
