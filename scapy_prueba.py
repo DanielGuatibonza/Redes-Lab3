@@ -13,4 +13,4 @@ def procesar_paquete(x):
     # print(x.mysummary())
     # print(x.payload_guess)
 
-scapy.sniff(iface="ens33", filter="tcp", prn=procesar_paquete)
+scapy.sniff(iface="ens33", filter="scr host 192.168.231.132", prn=procesar_paquete)
