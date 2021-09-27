@@ -13,6 +13,6 @@ import scapy.all as scapy
 #     print(element[1].psrc + "      " + element[1].hwsrc)
 
 def procesar_paquete(x):
-    print(x.keys())
+    print(type(x))
 
-scapy.sniff(count=10, iface="ens33", prn=lambda x: procesar_paquete(x))
+scapy.sniff(count=10, iface="ens33", prn=procesar_paquete)
