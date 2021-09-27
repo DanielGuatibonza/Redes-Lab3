@@ -18,4 +18,4 @@ def procesar_paquete(paquete):
     # print(x.mysummary())
     # print(x.payload_guess)
 
-scapy.sniff(iface="ens33", filter="tcp scr port 8081", prn=procesar_paquete)
+scapy.sniff(iface="ens33", filter="port 8081", prn=procesar_paquete)
