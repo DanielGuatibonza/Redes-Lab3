@@ -3,13 +3,10 @@ from scapy.all import TCP
 from scapy.layers.l2 import Ether
 
 def procesar_paquete(x):
-    x.show()
-    print(type(x[TCP]))
-    print(dir(x[TCP]))
-    print(x[TCP].__bytes__)
-    print(x[TCP].time)
-    print(type(x[Ether]))
-    print(dir(x[Ether]))
+    print(x[Ether].__bytes__)
+    print(x[Ether].time)
+    # print(type(x[Ether]))
+    # print(dir(x[Ether]))
     # print(x.mysummary())
     # print(x.payload_guess)
 
