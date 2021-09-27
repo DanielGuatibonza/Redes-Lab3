@@ -2,10 +2,10 @@ import scapy.all as scapy
 from scapy.all import TCP
 from scapy.layers.l2 import Ether
 
-bytes_ = set()
+bytes_ = []
 def procesar_paquete(paquete):
-    bytes_.add(len(paquete[Ether].__bytes__()))
-    print(bytes_)
+    bytes_.append(len(paquete[Ether].__bytes__()))
+    print(sum(bytes_))
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
     # print(x.mysummary())
