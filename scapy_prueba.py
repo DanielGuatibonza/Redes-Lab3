@@ -6,4 +6,4 @@ def procesar_paquete(x):
     print(x.mysummary())
     print(x.payload_guess)
 
-scapy.sniff(count=100, iface="ens33", prn=procesar_paquete)
+scapy.sniff(count=100, iface="ens33", filter="tcp", prn=procesar_paquete)
