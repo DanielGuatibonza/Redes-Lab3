@@ -6,7 +6,7 @@ bytes_ = []
 cont = 0
 def procesar_paquete(paquete):
     global bytes_, cont
-    length = len(paquete[Ether].__bytes__())
+    length = len(paquete[TCP].__bytes__())
     if length == 1514:
         cont += 1
     bytes_.append(length)
