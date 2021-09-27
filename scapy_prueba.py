@@ -3,10 +3,10 @@ from scapy.all import TCP
 from scapy.layers.l2 import Ether
 
 suma = 0
-def procesar_paquete(x):
+def procesar_paquete(paquete):
     global suma
-    suma += 16*len(x[Ether].__bytes__())
-    print(x[Ether].__bytes__())
+    suma += len(paquete)
+    print(paquete[Ether].__bytes__())
     print(suma)
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
