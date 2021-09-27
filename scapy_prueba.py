@@ -3,7 +3,7 @@ from scapy.all import TCP
 from scapy.layers.l2 import Ether
 
 def procesar_paquete(x):
-    print(x[Ether].__bytes__)
+    print(x[Ether].__bytes__())
     print(x[Ether].time)
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
