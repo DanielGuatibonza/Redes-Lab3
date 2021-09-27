@@ -12,4 +12,7 @@ import scapy.all as scapy
 # for element in clients:
 #     print(element[1].psrc + "      " + element[1].hwsrc)
 
-print(scapy.sniff(count=1, iface="ens33", prn=lambda x: x.show()))
+def procesar_paquete(x):
+    print(x.keys())
+
+scapy.sniff(count=10, iface="ens33", prn=lambda x: procesar_paquete(x))
