@@ -3,9 +3,15 @@ from scapy.all import TCP
 from scapy.layers.l2 import Ether
 
 bytes_ = []
+cont = 0
 def procesar_paquete(paquete):
-    bytes_.append(len(paquete[Ether].__bytes__()))
-    print(sum(bytes_))
+    global bytes_, cont
+    length = len(paquete[Ether].__bytes__())
+    if length == 1514:
+        cont += 1
+    bytes_.append()
+    print("Bytes", sum(bytes_))
+    print("Cantidad", cont)
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
     # print(x.mysummary())
