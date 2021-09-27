@@ -6,6 +6,10 @@ def procesar_paquete(x):
     x.show()
     print(type(x[TCP]))
     print(dir(x[TCP]))
+    print(x[TCP].__bytes__)
+    print(x[TCP].time)
+    print(type(x[Ether]))
+    print(dir(x[Ether]))
     # print(x.mysummary())
     # print(x.payload_guess)
 
