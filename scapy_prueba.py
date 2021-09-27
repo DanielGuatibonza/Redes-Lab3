@@ -5,8 +5,8 @@ from scapy.layers.l2 import Ether
 suma = 0
 def procesar_paquete(x):
     global suma
-    suma += len(x[Ether].__bytes__())
-    print(len(x[Ether].__bytes__()))
+    suma += 16*len(x[Ether].__bytes__())
+    print(x[Ether].__bytes__())
     print(suma)
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
