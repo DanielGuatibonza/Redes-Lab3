@@ -9,7 +9,7 @@ def procesar_paquete(paquete):
     length = len(paquete[Ether].__bytes__())
     if length == 1514:
         cont += 1
-    bytes_.append()
+    bytes_.append(length)
     print("Bytes", sum(bytes_))
     print("Cantidad", cont)
     # print(type(x[Ether]))
