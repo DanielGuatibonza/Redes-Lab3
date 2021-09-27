@@ -11,7 +11,8 @@ def procesar_paquete(paquete):
         cont += 1
     bytes_.append(length)
     print("Bytes", sum(bytes_))
-    print("Cantidad", cont)
+    print("Cantidad 1514", cont)
+    print("Cantidad", len(bytes_))
     # print(type(x[Ether]))
     # print(dir(x[Ether]))
     # print(x.mysummary())
