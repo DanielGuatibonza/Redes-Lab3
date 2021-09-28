@@ -5,4 +5,4 @@ proceso = subprocess.Popen(['tshark', '-d', 'tcp.port==8081', '-w', 'captura.pca
 
 time.sleep(10)
 
-proceso.kill()
+#proceso.kill()
