@@ -31,10 +31,10 @@ def iniciar_protocolo():
 def enviar_archivo(socket_cliente):
     global nombre_archivo
     with open(nombre_archivo, "rb") as f:
-        l = f.read(1024)
+        l = f.read(4096)
         while (l):
             socket_cliente.send(l)
-            l = f.read(1024)
+            l = f.read(4096)
     with open(nombre_archivo, "r") as f:
         data = f.read()
         hash_data = hashlib.sha256(data.encode()).hexdigest()
