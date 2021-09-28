@@ -1,7 +1,7 @@
 import pyshark
 
 capture = pyshark.LiveCapture(interface='ens33')
-capture.sniff(timeout=50)
+#capture.sniff(timeout=50)
 
 contador = 0
 for packet in capture.sniff_continuously():
