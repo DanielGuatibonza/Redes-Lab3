@@ -6,11 +6,11 @@ proceso_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
 pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'], stdout=archivo_captura)
 
 time.sleep(15)
-proceso_captura.close()
-pcap_captura.close()
+proceso_captura.kill()
+pcap_captura.kill()
 
 archivo_filtrado = open('filtroTshark.txt', 'wb')
-proceso = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.analysis.retransmission'], stdout=archivo_filtrado)
+proceso_filtro = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.analysis.retransmission'], stdout=archivo_filtrado)
 
 time.sleep(15)
-proceso.close()
+proceso_filtro.kill()
