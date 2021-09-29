@@ -11,6 +11,3 @@ pcap_captura.kill()
 
 archivo_filtrado = open('filtroTshark.txt', 'wb')
 proceso_filtro = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.analysis.retransmission'], stdout=archivo_filtrado)
-
-time.sleep(30)
-proceso_filtro.kill()
