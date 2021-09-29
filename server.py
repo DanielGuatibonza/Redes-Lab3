@@ -11,7 +11,7 @@ num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
 archivo_captura = open('capturaTshark.txt', 'wb')
 proceso_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
-pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'], stdout=archivo_captura)
+pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'])
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
 s.bind((HOST, PORT))
