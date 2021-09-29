@@ -1,7 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import socket, sys
+import socket, hashlib, subprocess
 from settings import *
-import hashlib
 
 sockets_clientes = {}
 
@@ -44,7 +43,8 @@ def enviar_archivo(socket_cliente):
     socket_cliente.close()
     return ack
 
-paquetes = None
+archivo_captura = open('capturaTshark.txt', 'wb')
+proceso = subprocess.Popen(['tshark'], stdout=archivo_captura)
 with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
     for fut in as_completed(futures):
@@ -52,3 +52,4 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
+proceso.kill()

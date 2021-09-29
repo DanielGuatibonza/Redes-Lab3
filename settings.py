@@ -18,3 +18,4 @@ def recv_all(sock, length):
             raise EOFError ('Socket cerrado.')
         data += more
     return data
+

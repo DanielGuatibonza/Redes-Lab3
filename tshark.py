@@ -1,9 +1,15 @@
-import time
-import subprocess
+import pyshark
 
-archivo_captura = open('capturaTshark.txt', 'wb')
-proceso = subprocess.Popen(['tshark'], stdout=archivo_captura)
+cap = pyshark.FileCapture(input_file='traff.pcap')
 
-time.sleep(10)
+print(cap)
+print(len(cap))
+print(dir(cap))
 
-proceso.kill()
+cap.close()
+
+# import scapy.all as scapy
+
+# cap = scapy.rdpcap('traff.pcap')
+
+# print(scapy.sniff(offline="traff.pcap", filter="tcp.analysis.retransmission"))
