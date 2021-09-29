@@ -9,6 +9,10 @@ nombre_archivo = 'ArchivosServidor/file' + tamano_archivo + '.txt'
 num_clientes = input('Ingrese el número de clientes que solicitan el archivo: ')
 num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
+archivo_captura = open('capturaTshark.txt', 'wb')
+proceso_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
+pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'], stdout=archivo_captura)
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
 s.bind((HOST, PORT))
 s.listen(25)
@@ -43,8 +47,6 @@ def enviar_archivo(socket_cliente):
     socket_cliente.close()
     return ack
 
-archivo_captura = open('capturaTshark.txt', 'wb')
-proceso = subprocess.Popen(['tshark'], stdout=archivo_captura)
 with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
     for fut in as_completed(futures):
@@ -52,4 +54,8 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
-proceso.kill()
+
+proceso_captura.kill()
+pcap_captura.kill()
+archivo_filtrado = open('filtroTshark.txt', 'wb')
+proceso_filtro = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.analysis.retransmission'], stdout=archivo_filtrado)
