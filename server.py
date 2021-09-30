@@ -77,3 +77,6 @@ with open('capturaTshark.txt', 'r') as archivo_completo:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
     print(num_bytes_CS, num_bytes_SC, num_paquetes_CS, num_paquetes_SC)
+
+with open('filtroTshark.txt', 'r') as archivo_filtrado:
+    print(len(archivo_filtrado))
