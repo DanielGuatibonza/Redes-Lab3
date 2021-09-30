@@ -1,5 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import socket, hashlib, subprocess
+import socket, hashlib, subprocess, time
 from settings import *
 
 sockets_clientes = {}
@@ -10,7 +10,7 @@ num_clientes = input('Ingrese el número de clientes que solicitan el archivo: '
 num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
 
 archivo_captura = open('capturaTshark.txt', 'wb')
-proceso_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
+txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
 pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'])
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
@@ -55,7 +55,25 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     for fut in as_completed(futures):
         print(f"El resultado del envío del archivo fue: {fut.result()}")
 
-proceso_captura.kill()
+txt_captura.kill()
 pcap_captura.kill()
+
 archivo_filtrado = open('filtroTshark.txt', 'wb')
 proceso_filtro = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.analysis.retransmission'], stdout=archivo_filtrado)
+time.sleep(5)
+proceso_filtro.kill()
+
+with open('capturaTshark.txt', 'r') as archivo_completo:
+    num_bytes_CS = 0
+    num_bytes_SC = 0
+    num_paquetes_CS = 0
+    num_paquetes_SC = 0
+    for linea in archivo_completo:
+        partes = linea.split()
+        if CLIENT_HOST + ' → ' + HOST in linea:
+            num_bytes_CS += int(partes[6])
+            num_paquetes_CS += 1
+        elif HOST + ' → ' + CLIENT_HOST in linea:
+            num_bytes_SC += int(partes[6])
+            num_paquetes_SC += 1
+    print(num_bytes_CS, num_bytes_SC, num_paquetes_CS, num_paquetes_SC)
