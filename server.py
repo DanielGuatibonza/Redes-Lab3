@@ -1,13 +1,18 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import socket, hashlib, subprocess, time
+import socket, hashlib, subprocess, time, logging
+from datetime import datetime
 from settings import *
 
 sockets_clientes = {}
 
-tamano_archivo = input ("Ingrese el tamaño del archivo que requiere (MB): ")
+tamano_archivo = input ('Ingrese el tamaño del archivo que requiere (MB): ')
 nombre_archivo = 'ArchivosServidor/file' + tamano_archivo + '.txt'
 num_clientes = input('Ingrese el número de clientes que solicitan el archivo: ')
-num_clientes = num_clientes if len(num_clientes) > 1 else "0" + num_clientes
+num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
+
+formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+logging.basicConfig(filename=formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+logging.log('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
 archivo_captura = open('capturaTshark.txt', 'wb')
 txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
@@ -25,35 +30,39 @@ def iniciar_protocolo():
     sc, sockname = s.accept()
     print ('Se ha aceptado una conexión de', sockname)
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
+    logging.log('Se realizó la conexión con el cliente: ' + sockname)
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
-    print ('El mensaje entrante dice', repr(message))
+    print('El mensaje entrante dice', repr(message))
     sc.sendall(CLIENTE_ACEPTADO.encode())
     sockets_clientes[message.split(':')[1]] = sc
     return len(sockets_clientes)
 
 def enviar_archivo(socket_cliente):
     global nombre_archivo
-    with open(nombre_archivo, "rb") as f:
+    tiempo_inicio = time.time()
+    with open(nombre_archivo, 'rb') as f:
         l = f.read(4096)
         while (l):
             socket_cliente.send(l)
             l = f.read(4096)
-    with open(nombre_archivo, "r") as f:
+    with open(nombre_archivo, 'r') as f:
         data = f.read()
         hash_data = hashlib.sha256(data.encode()).hexdigest()
         socket_cliente.send(hash_data.encode())
         ack = recv_all(socket_cliente, len(ARCHIVO_RECIBIDO))
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
+        logging.log('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
     socket_cliente.close()
+    logging.log('El tiempo de transferencia del archivo al cliente ' + socket_cliente.getpeername() + ' fue de ' + (time.time() - tiempo_inicio) + " segundos.")
     return ack
 
 with ThreadPoolExecutor(max_workers=25) as pool:
     futures = {pool.submit(iniciar_protocolo) for _ in range(int(num_clientes))}
     for fut in as_completed(futures):
-        print(f"La salida es {fut.result()}")
+        print(f'La salida es {fut.result()}')
     futures = {pool.submit(enviar_archivo, socket_cliente) for socket_cliente in sockets_clientes.values()}
     for fut in as_completed(futures):
-        print(f"El resultado del envío del archivo fue: {fut.result()}")
+        print(f'El resultado del envío del archivo fue: {fut.result()}')
 
 txt_captura.kill()
 pcap_captura.kill()
@@ -76,7 +85,8 @@ with open('capturaTshark.txt', 'r') as archivo_completo:
         elif HOST + ' → ' + CLIENT_HOST in linea:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
-    print(num_bytes_CS, num_bytes_SC, num_paquetes_CS, num_paquetes_SC)
+    logging.info('El número de paquetes enviados fue: ' + num_paquetes_SC)
+    logging.info('El número de bytes enviados fue: ' + num_bytes_SC)
 
 with open('filtroTshark.txt', 'r') as archivo_filtrado:
-    print(len(archivo_filtrado.readlines()))
+    logging.info('El número de paquetes retransmitidos fue: ' + len(archivo_filtrado.readlines()))
