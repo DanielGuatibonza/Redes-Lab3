@@ -11,8 +11,8 @@ num_clientes = input('Ingrese el número de clientes que solicitan el archivo: '
 num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-log.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-log = log.getLogger('Logs/'+formated_date +'-log')
+logging.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+log = logging.getLogger('Logs/'+formated_date +'-log')
 log.setLevel(log.DEBUG)
 log.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
