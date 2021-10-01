@@ -12,7 +12,7 @@ num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 logging.basicConfig(filename=formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-logging.warning('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
+logging.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
 archivo_captura = open('capturaTshark.txt', 'wb')
 txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
@@ -30,7 +30,7 @@ def iniciar_protocolo():
     sc, sockname = s.accept()
     print ('Se ha aceptado una conexión de', sockname)
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
-    logging.log('Se realizó la conexión con el cliente: ' + sockname)
+    logging.debug('Se realizó la conexión con el cliente: ' + sockname)
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
     print('El mensaje entrante dice', repr(message))
     sc.sendall(CLIENTE_ACEPTADO.encode())
@@ -51,9 +51,9 @@ def enviar_archivo(socket_cliente):
         socket_cliente.send(hash_data.encode())
         ack = recv_all(socket_cliente, len(ARCHIVO_RECIBIDO))
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
-        logging.log('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
+        logging.debug('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
     socket_cliente.close()
-    logging.log('El tiempo de transferencia del archivo al cliente ' + socket_cliente.getpeername() + ' fue de ' + (time.time() - tiempo_inicio) + " segundos.")
+    logging.debug('El tiempo de transferencia del archivo al cliente ' + socket_cliente.getpeername() + ' fue de ' + (time.time() - tiempo_inicio) + " segundos.")
     return ack
 
 with ThreadPoolExecutor(max_workers=25) as pool:
