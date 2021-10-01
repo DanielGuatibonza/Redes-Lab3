@@ -12,7 +12,7 @@ num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 logging.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-logging.setLevel('DEBUG')
+logging.setLevel(logging.DEBUG)
 logging.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
 archivo_captura = open('capturaTshark.txt', 'wb')
