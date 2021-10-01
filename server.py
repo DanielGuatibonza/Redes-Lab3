@@ -89,6 +89,7 @@ with open('capturaTshark.txt', 'r') as archivo_completo:
             num_paquetes_SC += 1
     log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
     log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
+    print(num_paquetes_CS, num_bytes_CS)
 
 with open('filtroTshark.txt', 'r') as archivo_filtrado:
     log.info('El número de paquetes retransmitidos fue: ' + str(len(archivo_filtrado.readlines())))
