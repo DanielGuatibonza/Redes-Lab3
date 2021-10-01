@@ -30,7 +30,7 @@ def iniciar_protocolo():
     sc, sockname = s.accept()
     print ('Se ha aceptado una conexión de', str(sockname))
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
-    logging.debug('Se realizó la conexión con el cliente: ' + sockname)
+    logging.debug('Se realizó la conexión con el cliente: ' + str(sockname))
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
     print('El mensaje entrante dice', repr(message))
     sc.sendall(CLIENTE_ACEPTADO.encode())
