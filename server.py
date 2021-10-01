@@ -11,9 +11,9 @@ num_clientes = input('Ingrese el número de clientes que solicitan el archivo: '
 num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-logging.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-log = logging.getLogger('Logs/'+formated_date +'-log')
-log.setLevel(logging.DEBUG)
+log.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+log = log.getLogger('Logs/'+formated_date +'-log')
+log.setLevel(log.DEBUG)
 log.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
 archivo_captura = open('capturaTshark.txt', 'wb')
@@ -32,7 +32,7 @@ def iniciar_protocolo():
     sc, sockname = s.accept()
     print ('Se ha aceptado una conexión de', str(sockname))
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
-    logging.debug('Se realizó la conexión con el cliente: ' + str(sockname))
+    log.debug('Se realizó la conexión con el cliente: ' + str(sockname))
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
     print('El mensaje entrante dice', repr(message))
     sc.sendall(CLIENTE_ACEPTADO.encode())
@@ -53,8 +53,8 @@ def enviar_archivo(socket_cliente):
         socket_cliente.send(hash_data.encode())
         ack = recv_all(socket_cliente, len(ARCHIVO_RECIBIDO))
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
-        logging.debug('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
-    logging.debug('El tiempo de transferencia del archivo al cliente ' + str(socket_cliente.getpeername()) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
+        log.debug('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
+    log.debug('El tiempo de transferencia del archivo al cliente ' + str(socket_cliente.getpeername()) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     socket_cliente.close()
     return ack
 
@@ -87,8 +87,8 @@ with open('capturaTshark.txt', 'r') as archivo_completo:
         elif HOST + ' → ' + CLIENT_HOST in linea:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
-    logging.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
-    logging.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
+    log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
+    log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
 
 with open('filtroTshark.txt', 'r') as archivo_filtrado:
-    logging.info('El número de paquetes retransmitidos fue: ' + str(len(archivo_filtrado.readlines())))
+    log.info('El número de paquetes retransmitidos fue: ' + str(len(archivo_filtrado.readlines())))
