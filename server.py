@@ -85,8 +85,8 @@ with open('capturaTshark.txt', 'r') as archivo_completo:
         elif HOST + ' → ' + CLIENT_HOST in linea:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
-    logging.info('El número de paquetes enviados fue: ' + num_paquetes_SC)
-    logging.info('El número de bytes enviados fue: ' + num_bytes_SC)
+    logging.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
+    logging.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
 
 with open('filtroTshark.txt', 'r') as archivo_filtrado:
-    logging.info('El número de paquetes retransmitidos fue: ' + len(archivo_filtrado.readlines()))
+    logging.info('El número de paquetes retransmitidos fue: ' + str(len(archivo_filtrado.readlines())))
