@@ -28,7 +28,7 @@ sc.sendall((num_clientes + ',' + tamano_archivo).encode())
 def iniciar_protocolo():
     global sockets_clientes
     sc, sockname = s.accept()
-    print ('Se ha aceptado una conexión de', sockname)
+    print ('Se ha aceptado una conexión de', str(sockname))
     print ('El socket se conecta desde', sc.getsockname(), 'hacia', sc.getpeername())
     logging.debug('Se realizó la conexión con el cliente: ' + sockname)
     message = recv_all(sc, len(CLIENTE_LISTO)+3)
