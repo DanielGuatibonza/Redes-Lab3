@@ -53,6 +53,8 @@ def enviar_archivo(socket_cliente):
         print('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
         logging.debug('El cliente ' + str(socket_cliente.getpeername()) + ' respondió: ' + ack)
     socket_cliente.close()
+    print(time.time() - tiempo_inicio)
+    print(type(time.time() - tiempo_inicio))
     logging.debug('El tiempo de transferencia del archivo al cliente ' + str(socket_cliente.getpeername()) + ' fue de ' + str(time.time() - tiempo_inicio) + " segundos.")
     return ack
 
