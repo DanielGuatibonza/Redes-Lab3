@@ -14,7 +14,7 @@ formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 logging.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
 log = logging.getLogger('Logs/'+formated_date +'-log')
 log.setLevel(logging.DEBUG)
-logging.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
+log.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
 archivo_captura = open('capturaTshark.txt', 'wb')
 txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
