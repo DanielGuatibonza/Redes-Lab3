@@ -11,8 +11,8 @@ num_clientes = input('Ingrese el número de clientes que solicitan el archivo: '
 num_clientes = num_clientes if len(num_clientes) > 1 else '0' + num_clientes
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-logging.basicConfig(filename='Logs/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-log = logging.getLogger('Logs/'+formated_date +'-log')
+logging.basicConfig(filename='Logs/Servidor/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+log = logging.getLogger('Logs/Servidor/'+formated_date +'-log')
 log.setLevel(logging.DEBUG)
 log.debug('Archivo a enviar: ' + nombre_archivo + ', Tamaño: ' + tamano_archivo + 'MB.')
 
@@ -74,22 +74,24 @@ proceso_filtro = subprocess.Popen(['tshark', '-r', 'traff.pcap', '-Y', 'tcp.anal
 time.sleep(5)
 proceso_filtro.kill()
 
+num_bytes_SC = 0
+num_paquetes_SC = 0
 with open('capturaTshark.txt', 'r') as archivo_completo:
-    num_bytes_CS = 0
-    num_bytes_SC = 0
-    num_paquetes_CS = 0
-    num_paquetes_SC = 0
     for linea in archivo_completo:
         partes = linea.split()
-        if CLIENT_HOST + ' → ' + HOST in linea:
-            num_bytes_CS += int(partes[6])
-            num_paquetes_CS += 1
-        elif HOST + ' → ' + CLIENT_HOST in linea:
+        if HOST + ' → ' + CLIENT_HOST in linea:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
     log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
     log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
-    print(num_paquetes_CS, num_bytes_CS)
 
 with open('filtroTshark.txt', 'r') as archivo_filtrado:
-    log.info('El número de paquetes retransmitidos fue: ' + str(len(archivo_filtrado.readlines())))
+    paquetes_retransmitidos = 0
+    bytes_retransmitidos = 0
+    for linea in archivo_filtrado:
+        partes = linea.split()
+        bytes_retransmitidos += int(partes[6])
+        paquetes_retransmitidos += 1
+    log.info('El número de paquetes retransmitidos fue: ' + str(paquetes_retransmitidos))
+    sc.sendall(('{:10d},{:10d},{:8d},{:8d}'.format(num_bytes_SC, bytes_retransmitidos, num_paquetes_SC, paquetes_retransmitidos)).encode())
+    sc.close()
