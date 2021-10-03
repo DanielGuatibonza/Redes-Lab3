@@ -1,0 +1,18 @@
+2021-10-02 20:11:44,315 - DEBUG - Archivo a recibir: file100.txt, Tamaño: 100MB.
+2021-10-02 20:11:44,317 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 58861)
+2021-10-02 20:11:44,317 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 58862)
+2021-10-02 20:11:44,317 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 58863)
+2021-10-02 20:11:44,318 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 58864)
+2021-10-02 20:11:44,318 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 58865)
+2021-10-02 20:11:53,505 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 9.179577589035034 segundos.
+2021-10-02 20:11:54,400 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 10.075182914733887 segundos.
+2021-10-02 20:11:55,368 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 11.037567138671875 segundos.
+2021-10-02 20:11:56,303 - DEBUG - El cliente ('192.168.231.1', 58863) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:11:56,342 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 12.007771015167236 segundos.
+2021-10-02 20:11:56,370 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 12.041678190231323 segundos.
+2021-10-02 20:11:57,843 - DEBUG - El cliente ('192.168.231.1', 58862) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:11:57,852 - DEBUG - El cliente ('192.168.231.1', 58861) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:11:58,550 - DEBUG - El cliente ('192.168.231.1', 58865) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:11:58,809 - DEBUG - El cliente ('192.168.231.1', 58864) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:12:03,902 - INFO - El número de bytes recibidos estuvo entre 513835319 y 511740955
+2021-10-02 20:12:03,902 - INFO - El número de paquetes recibidos estuvo entre 14156 y 12980

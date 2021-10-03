@@ -1,0 +1,33 @@
+2021-10-02 20:22:05,502 - DEBUG - Archivo a recibir: file100.txt, Tamaño: 100MB.
+2021-10-02 20:22:05,504 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51327)
+2021-10-02 20:22:05,504 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51328)
+2021-10-02 20:22:05,505 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51329)
+2021-10-02 20:22:05,505 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51330)
+2021-10-02 20:22:05,506 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51331)
+2021-10-02 20:22:05,506 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51333)
+2021-10-02 20:22:05,506 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51334)
+2021-10-02 20:22:05,506 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51332)
+2021-10-02 20:22:05,506 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51336)
+2021-10-02 20:22:05,507 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 51335)
+2021-10-02 20:22:19,930 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 14.412381172180176 segundos.
+2021-10-02 20:22:21,162 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 15.636141538619995 segundos.
+2021-10-02 20:22:21,223 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 15.683025598526001 segundos.
+2021-10-02 20:22:22,207 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 16.680354118347168 segundos.
+2021-10-02 20:22:23,501 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 17.9931480884552 segundos.
+2021-10-02 20:22:25,380 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 19.861759901046753 segundos.
+2021-10-02 20:22:27,589 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 22.055620670318604 segundos.
+2021-10-02 20:22:28,970 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 23.420995473861694 segundos.
+2021-10-02 20:22:29,059 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 23.528708457946777 segundos.
+2021-10-02 20:22:30,898 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.132', 8081) fue de 25.384055376052856 segundos.
+2021-10-02 20:22:34,352 - DEBUG - El cliente ('192.168.231.1', 51329) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:38,428 - DEBUG - El cliente ('192.168.231.1', 51336) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:41,435 - DEBUG - El cliente ('192.168.231.1', 51333) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:41,607 - DEBUG - El cliente ('192.168.231.1', 51332) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:41,739 - DEBUG - El cliente ('192.168.231.1', 51328) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:41,830 - DEBUG - El cliente ('192.168.231.1', 51331) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:41,999 - DEBUG - El cliente ('192.168.231.1', 51327) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:42,126 - DEBUG - El cliente ('192.168.231.1', 51334) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:42,448 - DEBUG - El cliente ('192.168.231.1', 51335) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:42,463 - DEBUG - El cliente ('192.168.231.1', 51330) recibió correctamente 104857600 bytes del archivo.
+2021-10-02 20:22:47,631 - INFO - El número de bytes recibidos estuvo entre 973650080 y 968217034
+2021-10-02 20:22:47,631 - INFO - El número de paquetes recibidos estuvo entre 29486 y 26779

@@ -1,16 +1,17 @@
 import socket, sys
 from settings import *
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import hashlib, logging, datetime, time
+from datetime import datetime
+import hashlib, logging, time
 
 formated_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
 logging.basicConfig(filename='Logs/Cliente/'+formated_date +'-log.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
 log = logging.getLogger('Logs/Cliente/'+formated_date +'-log')
 log.setLevel(logging.DEBUG)
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
-reply = recv_all(s, 6)
+socket_principal = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+socket_principal.connect((HOST, PORT))
+reply = recv_all(socket_principal, 6)
 num_clientes = int(reply.split(',')[0])
 tamano_archivo_MB = reply.split(',')[1]
 tamano_archivo = 1024*1024*int(tamano_archivo_MB)
@@ -37,7 +38,6 @@ def recibir_archivo(i):
         s.sendall(ARCHIVO_RECIBIDO.encode())
     else:
         s.sendall(HASH_INCORRECTO.encode())
-    s.close()
     return s, len(file_data)
 
 with ThreadPoolExecutor(max_workers=25) as pool:
@@ -45,9 +45,10 @@ with ThreadPoolExecutor(max_workers=25) as pool:
     for fut in as_completed(futures):
         s, bytes_recibidos = fut.result()
         print(f"El tamaño del archivo recibido fue de {bytes_recibidos} bytes.")
-        log.debug('El cliente ' + str(s.getsockname()) + ' recibió correctamente ' + bytes_recibidos + ' bytes del archivo.')
+        log.debug('El cliente ' + str(s.getsockname()) + ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
+        s.close()
 
-reply = recv_all(s, 39).split(',')
+reply = recv_all(socket_principal, 39).split(',')
 num_bytes_SC = int(reply[0])
 bytes_retransmitidos = int(reply[1])
 num_paquetes_SC = int(reply[2])
@@ -56,8 +57,8 @@ if paquetes_retransmitidos == 0:
     log.info('El número de bytes recibidos fue: ' + str(num_bytes_SC) + ' bytes.')
     log.info('El número de paquetes recibidos fue: ' + str(num_paquetes_SC))
 else:
-    log.info('El número de bytes recibidos estuvo entre ' + str(num_bytes_SC) + ' y ' + str(num_bytes_SC - bytes_retransmitidos))
-    log.info('El número de paquetes recibidos estuvo entre ' + str(num_paquetes_SC) + ' y ' + str(num_paquetes_SC - paquetes_retransmitidos))
-s.close()
+    log.info('El número de bytes recibidos estuvo entre ' + str(num_bytes_SC - bytes_retransmitidos) + ' y ' + str(num_bytes_SC))
+    log.info('El número de paquetes recibidos estuvo entre ' + str(num_paquetes_SC - paquetes_retransmitidos) + ' y ' + str(num_paquetes_SC))
+socket_principal.close()
 
         

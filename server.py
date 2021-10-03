@@ -20,7 +20,7 @@ archivo_captura = open('capturaTshark.txt', 'wb')
 txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
 pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'])
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(25)
 print ('Escuchando en', s.getsockname())
