@@ -29,7 +29,7 @@ def recibir_archivo(i):
     print('El servidor respondió con ', repr(reply))
     tiempo_inicio = time.time()
     file_data = recv_all(s, tamano_archivo)
-    log.debug('El tiempo de transferencia del archivo al cliente ' + str(s.getpeername()) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
+    log.debug('El tiempo de transferencia del archivo al cliente ' + str(s.getsockname()) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     hash_data = hashlib.sha256(file_data.encode()).hexdigest()
     hash_server = recv_all(s, 64)
     if hash_data == hash_server:

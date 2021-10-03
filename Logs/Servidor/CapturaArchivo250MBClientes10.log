@@ -1,0 +1,34 @@
+2021-10-03 01:30:26,840 - DEBUG - Archivo a enviar: ArchivosServidor/file250.txt, Tamaño: 250MB.
+2021-10-03 01:30:30,858 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55212)
+2021-10-03 01:30:30,860 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55213)
+2021-10-03 01:30:30,863 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55217)
+2021-10-03 01:30:30,866 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55214)
+2021-10-03 01:30:30,869 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55215)
+2021-10-03 01:30:30,871 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55219)
+2021-10-03 01:30:30,878 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55218)
+2021-10-03 01:30:30,879 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55220)
+2021-10-03 01:30:30,897 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55221)
+2021-10-03 01:30:30,909 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55216)
+2021-10-03 01:31:52,292 - DEBUG - El cliente ('192.168.231.1', 55213) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:31:52,298 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55213) fue de 81.35212516784668 segundos.
+2021-10-03 01:32:11,073 - DEBUG - El cliente ('192.168.231.1', 55218) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:11,208 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55218) fue de 100.21315884590149 segundos.
+2021-10-03 01:32:16,533 - DEBUG - El cliente ('192.168.231.1', 55221) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:16,572 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55221) fue de 105.4242057800293 segundos.
+2021-10-03 01:32:21,577 - DEBUG - El cliente ('192.168.231.1', 55217) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:21,717 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55217) fue de 110.7962999343872 segundos.
+2021-10-03 01:32:21,572 - DEBUG - El cliente ('192.168.231.1', 55214) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:21,778 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55214) fue de 110.7866849899292 segundos.
+2021-10-03 01:32:27,283 - DEBUG - El cliente ('192.168.231.1', 55215) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:27,284 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55215) fue de 116.31613540649414 segundos.
+2021-10-03 01:32:28,527 - DEBUG - El cliente ('192.168.231.1', 55220) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:28,625 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55220) fue de 117.48819732666016 segundos.
+2021-10-03 01:32:28,882 - DEBUG - El cliente ('192.168.231.1', 55216) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:28,882 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55216) fue de 117.73614454269409 segundos.
+2021-10-03 01:32:33,098 - DEBUG - El cliente ('192.168.231.1', 55212) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:33,099 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55212) fue de 122.17833542823792 segundos.
+2021-10-03 01:32:38,053 - DEBUG - El cliente ('192.168.231.1', 55219) respondió: El archivo se recibió correctamente.              
+2021-10-03 01:32:38,053 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55219) fue de 127.01929664611816 segundos.
+2021-10-03 01:32:43,729 - INFO - El número de paquetes enviados fue: 72987
+2021-10-03 01:32:43,729 - INFO - El número de bytes enviados fue: 2521943530
+2021-10-03 01:32:43,809 - INFO - El número de paquetes retransmitidos fue: 1802
