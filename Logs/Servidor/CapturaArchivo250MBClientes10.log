@@ -1,34 +1,34 @@
-2021-10-03 03:51:42,673 - DEBUG - Archivo a enviar: ArchivosServidor/file250.txt, Tamaño: 250MB.
-2021-10-03 03:51:54,368 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52294)
-2021-10-03 03:51:54,370 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52297)
-2021-10-03 03:51:54,372 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52299)
-2021-10-03 03:51:54,373 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52300)
-2021-10-03 03:51:54,382 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52302)
-2021-10-03 03:51:54,384 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52295)
-2021-10-03 03:51:54,387 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52303)
-2021-10-03 03:51:54,390 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52296)
-2021-10-03 03:51:54,392 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52298)
-2021-10-03 03:51:54,405 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 52301)
-2021-10-03 03:53:42,170 - DEBUG - El cliente ('192.168.231.1', 52303) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:53:42,170 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52303) fue de 107.73093032836914 segundos.
-2021-10-03 03:53:54,509 - DEBUG - El cliente ('192.168.231.1', 52299) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:53:54,525 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52299) fue de 120.08649706840515 segundos.
-2021-10-03 03:54:02,350 - DEBUG - El cliente ('192.168.231.1', 52296) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:02,496 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52296) fue de 128.05829787254333 segundos.
-2021-10-03 03:54:04,666 - DEBUG - El cliente ('192.168.231.1', 52297) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:04,667 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52297) fue de 130.23089456558228 segundos.
-2021-10-03 03:54:05,849 - DEBUG - El cliente ('192.168.231.1', 52300) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:11,163 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52300) fue de 136.7331519126892 segundos.
-2021-10-03 03:54:32,972 - DEBUG - El cliente ('192.168.231.1', 52295) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:32,975 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52295) fue de 158.53674340248108 segundos.
-2021-10-03 03:54:33,100 - DEBUG - El cliente ('192.168.231.1', 52294) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:33,109 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52294) fue de 158.67250275611877 segundos.
-2021-10-03 03:54:33,166 - DEBUG - El cliente ('192.168.231.1', 52302) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:33,166 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52302) fue de 158.7274317741394 segundos.
-2021-10-03 03:54:33,278 - DEBUG - El cliente ('192.168.231.1', 52298) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:33,279 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52298) fue de 158.84047436714172 segundos.
-2021-10-03 03:54:33,397 - DEBUG - El cliente ('192.168.231.1', 52301) respondió: El archivo se recibió correctamente.              
-2021-10-03 03:54:33,398 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 52301) fue de 158.95868372917175 segundos.
-2021-10-03 03:54:39,089 - INFO - El número de paquetes enviados fue: 81059
-2021-10-03 03:54:39,089 - INFO - El número de bytes enviados fue: 2543636690
-2021-10-03 03:54:39,097 - INFO - El número de paquetes retransmitidos fue: 1396
+2021-10-03 18:48:49,319 - DEBUG - Archivo a enviar: ArchivosServidor/file250.txt, Tamaño: 250MB.
+2021-10-03 18:48:56,114 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54643)
+2021-10-03 18:48:56,115 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54646)
+2021-10-03 18:48:56,118 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54644)
+2021-10-03 18:48:56,121 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54642)
+2021-10-03 18:48:56,124 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54647)
+2021-10-03 18:48:56,125 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54650)
+2021-10-03 18:48:56,126 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54651)
+2021-10-03 18:48:56,128 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54645)
+2021-10-03 18:48:56,136 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54648)
+2021-10-03 18:48:56,148 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 54649)
+2021-10-03 18:50:29,330 - DEBUG - El cliente ('192.168.231.1', 54643) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:29,345 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54643) fue de 93.13736271858215 segundos.
+2021-10-03 18:50:31,105 - DEBUG - El cliente ('192.168.231.1', 54648) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:31,136 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54648) fue de 94.90460443496704 segundos.
+2021-10-03 18:50:56,286 - DEBUG - El cliente ('192.168.231.1', 54650) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:56,440 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54650) fue de 120.21921920776367 segundos.
+2021-10-03 18:50:56,660 - DEBUG - El cliente ('192.168.231.1', 54644) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:56,661 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54644) fue de 120.45641255378723 segundos.
+2021-10-03 18:50:58,289 - DEBUG - El cliente ('192.168.231.1', 54651) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:58,290 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54651) fue de 122.07041382789612 segundos.
+2021-10-03 18:50:58,489 - DEBUG - El cliente ('192.168.231.1', 54647) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:58,489 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54647) fue de 122.27127695083618 segundos.
+2021-10-03 18:50:58,500 - DEBUG - El cliente ('192.168.231.1', 54646) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:50:58,501 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54646) fue de 122.26917958259583 segundos.
+2021-10-03 18:51:00,147 - DEBUG - El cliente ('192.168.231.1', 54642) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:51:00,149 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54642) fue de 123.93467307090759 segundos.
+2021-10-03 18:51:00,880 - DEBUG - El cliente ('192.168.231.1', 54649) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:51:00,881 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54649) fue de 124.64955258369446 segundos.
+2021-10-03 18:51:07,861 - DEBUG - El cliente ('192.168.231.1', 54645) respondió: El archivo se recibió correctamente.              
+2021-10-03 18:51:07,862 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54645) fue de 131.64374136924744 segundos.
+2021-10-03 18:51:14,231 - INFO - El número de paquetes enviados fue: 62735
+2021-10-03 18:51:14,233 - INFO - El número de bytes enviados fue: 2327158694
+2021-10-03 18:51:14,238 - INFO - El número de paquetes retransmitidos fue: 0
