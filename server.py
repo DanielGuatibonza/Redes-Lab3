@@ -24,8 +24,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(25)
 print ('Escuchando en', s.getsockname())
-sc, sockname = s.accept()
-sc.sendall((num_clientes + ',' + tamano_archivo).encode())
+sc_principal, sockname = s.accept()
+sc_principal.sendall((num_clientes + ',' + tamano_archivo).encode())
 
 def iniciar_protocolo():
     global sockets_clientes
@@ -93,6 +93,6 @@ with open('filtroTshark.txt', 'r') as archivo_filtrado:
         bytes_retransmitidos += int(partes[6])
         paquetes_retransmitidos += 1
     log.info('El número de paquetes retransmitidos fue: ' + str(paquetes_retransmitidos))
-    sc.sendall(('{:10d},{:10d},{:8d},{:8d}'.format(num_bytes_SC, bytes_retransmitidos, num_paquetes_SC, paquetes_retransmitidos)).encode())
-sc.close()
+    sc_principal.sendall(('{:10d},{:10d},{:8d},{:8d}'.format(num_bytes_SC, bytes_retransmitidos, num_paquetes_SC, paquetes_retransmitidos)).encode())
+sc_principal.close()
 s.close()
