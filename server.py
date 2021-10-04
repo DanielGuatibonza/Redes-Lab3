@@ -95,3 +95,4 @@ with open('filtroTshark.txt', 'r') as archivo_filtrado:
     log.info('El número de paquetes retransmitidos fue: ' + str(paquetes_retransmitidos))
     sc.sendall(('{:10d},{:10d},{:8d},{:8d}'.format(num_bytes_SC, bytes_retransmitidos, num_paquetes_SC, paquetes_retransmitidos)).encode())
     sc.close()
+    s.close()
