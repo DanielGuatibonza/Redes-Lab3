@@ -10,6 +10,8 @@ CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos'
 ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.              '
 HASH_INCORRECTO = 'La integridad del archivo se ha visto comprometida.'
 
+CHUNKS_SIZE = 4096
+
 def recv_all(sock, length):
     data = ''
     while len(data) < length:
