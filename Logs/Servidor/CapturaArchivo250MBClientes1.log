@@ -1,7 +1,0 @@
-2021-10-03 01:10:11,746 - DEBUG - Archivo a enviar: ArchivosServidor/file250.txt, Tamaño: 250MB.
-2021-10-03 01:10:17,483 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 65213)
-2021-10-03 01:10:32,651 - DEBUG - El cliente ('192.168.231.1', 65213) respondió: El archivo se recibió correctamente.              
-2021-10-03 01:10:32,651 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 65213) fue de 15.167166233062744 segundos.
-2021-10-03 01:10:37,697 - INFO - El número de paquetes enviados fue: 4511
-2021-10-03 01:10:37,698 - INFO - El número de bytes enviados fue: 262387649
-2021-10-03 01:10:37,699 - INFO - El número de paquetes retransmitidos fue: 0

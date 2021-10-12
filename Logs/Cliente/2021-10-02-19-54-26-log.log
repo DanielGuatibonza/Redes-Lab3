@@ -1,6 +1,0 @@
-2021-10-02 19:54:26,981 - DEBUG - Archivo a recibir: file100.txt, Tama�o: 100MB.
-2021-10-02 19:54:26,983 - DEBUG - Se conect� el cliente identificado como: ('192.168.231.1', 54163)
-2021-10-02 19:54:29,420 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54163) fue de 2.435887098312378 segundos.
-2021-10-02 19:54:31,280 - DEBUG - El cliente ('192.168.231.1', 54163) recibi� correctamente 104857600 bytes del archivo.
-2021-10-02 19:54:36,310 - INFO - El n�mero de bytes recibidos fue: 105048869 bytes.
-2021-10-02 19:54:36,311 - INFO - El n�mero de paquetes recibidos fue: 3541
