@@ -24,7 +24,7 @@ pcap_captura = subprocess.Popen(['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((HOST, PORT))
 print ('Escuchando en', s.getsockname())
-data, main_client= s.recvfrom(SOLICITAR_CONEXION)
+data, main_client= s.recvfrom(len(SOLICITAR_CONEXION))
 s.sendto(((num_clientes + ',' + tamano_archivo).encode()), main_client)
 
 def iniciar_protocolo():
