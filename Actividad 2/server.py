@@ -35,7 +35,7 @@ def iniciar_protocolo():
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
     print('El mensaje entrante dice', str(data.decode()))
     s.sendto(CLIENTE_ACEPTADO.encode(), clientAddr)
-    addresses[data.split(':')[1]] = clientAddr
+    addresses[data.decode().split(':')[1]] = clientAddr
     return len(addresses)
 
 def enviar_archivo(client_address):
