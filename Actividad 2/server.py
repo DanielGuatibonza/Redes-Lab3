@@ -33,7 +33,7 @@ def iniciar_protocolo():
     print ('Se ha aceptado una conexión de', str(clientAddr))
     print ('El socket se conecta desde', (HOST, PORT), 'hacia', str(clientAddr))
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
-    print('El mensaje entrante dice', str(data))
+    print('El mensaje entrante dice', str(data.decode()))
     s.sendto(CLIENTE_ACEPTADO.encode(), clientAddr)
     addresses[data.split(':')[1]] = clientAddr
     return len(addresses)
@@ -50,8 +50,8 @@ def enviar_archivo(client_address):
         data = f.read()
         hash_data = hashlib.sha256(data.encode()).hexdigest()
         s.sendto(hash_data.encode(), client_address)
-        ack = s.recvfrom(len(ARCHIVO_RECIBIDO)+3)
-        correct_clients.append(ack.split(":")[1])
+        ack, server_address = s.recvfrom(len(ARCHIVO_RECIBIDO)+3)
+        correct_clients.append(ack.decode().split(":")[1])
     log.debug('El tiempo de transferencia del archivo al cliente ' + str(client_address) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     return ack
 

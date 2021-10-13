@@ -10,7 +10,7 @@ log = logging.getLogger('Logs/Cliente/'+formated_date +'-log')
 log.setLevel(logging.DEBUG)
 
 socket_principal = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-socket_principal.sendto(SOLICITAR_CONEXION, (HOST, PORT))
+socket_principal.sendto(SOLICITAR_CONEXION.encode(), (HOST, PORT))
 data, server_address = socket_principal.recvfrom(6)
 data = data.decode()
 
@@ -22,6 +22,8 @@ log.debug('Archivo a recibir: file' + file_size_MB + '.txt, Tamaño: ' + file_si
 def recibir_archivo(i):
     global file_size, num_clientes, server_address
     s = socket.socket (socket.AF_INET, socket.SOCK_DGRAM)
+    s.bind(('', 0))
+    s.settimeout(40)
     print('Al cliente {} le fue asignado el socket con nombre {}'.format(i, s.getsockname()))
     log.debug('Se conectó el cliente identificado como: ' + str(s.getsockname()))
     identificador = str(i) if i >= 10 else '0'+str(i)
