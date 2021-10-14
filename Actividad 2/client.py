@@ -36,16 +36,18 @@ def recibir_archivo(i):
 
     num_packets = file_size//CHUNKS_SIZE + 1
     file_data = ""
-    for j in range(num_packets):
-        print(j, num_packets)
+    file_chunk = ""
+    while(True):
         file_chunk, server_address = s.recvfrom(CHUNKS_SIZE)
-        file_data += file_chunk.decode()
+        if (len(file_chunk) != 64):
+            file_data += file_chunk.decode()
+        else:
+            break
 
     log.debug('El tiempo de transferencia del archivo al cliente ' +
               str(s.getsockname()) + ' fue de ' + str(time.time() - start_time) + ' segundos.')
     hash_data = hashlib.sha256(file_data.encode()).hexdigest()
-    hash_server = s.recvfrom(64)
-    print("Hola", file_data)
+    hash_server = file_chunk
     if len(file_data) == file_size and hash_data == hash_server:
         with open('ArchivosRecibidos/Cliente{}-Prueba-{}.txt'.format(i, num_clientes), 'w') as archivo:
             archivo.write(file_data)
