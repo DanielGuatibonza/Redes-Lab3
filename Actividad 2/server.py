@@ -61,8 +61,9 @@ def enviar_archivo(client_address):
         hash_data = hashlib.sha256(data.encode()).hexdigest()
         s.sendto(hash_data.encode(), client_address)
         ack, client_address = s.recvfrom(len(ARCHIVO_RECIBIDO)+3)
-        print('El mensaje entrante dice: ', str(ack.decode()))
-        log.debug("El cliente " + str(client_address) + " indicó: " + ack)
+        print('El mensaje entrante dice: ', ack.decode())
+        log.debug("El cliente " + str(client_address) +
+                  " indicó: " + ack.decode())
         correct_clients.append(ack.decode().split(":")[1])
     log.debug('El tiempo de transferencia del archivo al cliente ' +
               str(client_address) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
