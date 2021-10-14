@@ -66,10 +66,11 @@ def enviar_archivo(client_address):
         log.debug("El cliente " + str(client_address) +
                   " indicó: " + ack.decode())
         partes = ack.decode().split(":")
+        print(partes)
         if partes[0] == ARCHIVO_RECIBIDO:
             correct_clients.append(partes[1])
         elif partes[0] == ARCHIVO_INCORRECTO:
-            correct_clients.append(partes[1])
+            incorrect_clients.append(partes[1])
     log.debug('El tiempo de transferencia del archivo al cliente ' +
               str(client_address) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     return ack
