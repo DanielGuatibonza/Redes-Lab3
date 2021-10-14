@@ -9,6 +9,7 @@ from settings import *
 
 addresses = {}
 correct_clients = []
+incorrect_clients = []
 
 tamano_archivo = input('Ingrese el tamaño del archivo que requiere (MB): ')
 file_name = 'ArchivosServidor/file' + tamano_archivo + '.txt'
@@ -64,7 +65,11 @@ def enviar_archivo(client_address):
         print('El mensaje entrante dice: ', ack.decode())
         log.debug("El cliente " + str(client_address) +
                   " indicó: " + ack.decode())
-        correct_clients.append(ack.decode().split(":")[1])
+        partes = ack.decode().split(":")
+        if partes[0] == ARCHIVO_RECIBIDO:
+            correct_clients.append(partes[1])
+        elif partes[0] == ARCHIVO_INCORRECTO:
+            correct_clients.append(partes[1])
     log.debug('El tiempo de transferencia del archivo al cliente ' +
               str(client_address) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     return ack
@@ -85,6 +90,9 @@ with ThreadPoolExecutor(max_workers=25) as pool:
 for client in correct_clients:
     print('El cliente ' + client + ' recibió correctamente el archivo.')
     log.debug('El cliente ' + client + ' recibió correctamente el archivo.')
+for client in incorrect_clients:
+    print('El cliente ' + client + ' no recibió correctamente el archivo.')
+    log.debug('El cliente ' + client + ' no recibió correctamente el archivo.')
 
 # num_bytes_SC = 0
 # num_paquetes_SC = 0

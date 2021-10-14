@@ -34,7 +34,6 @@ def recibir_archivo(i):
     print('El servidor respondió con: ', str(reply.decode()))
     start_time = time.time()
 
-    num_packets = file_size//CHUNKS_SIZE + 1
     file_data = ""
     file_chunk = ""
     while(True):
