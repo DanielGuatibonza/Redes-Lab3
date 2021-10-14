@@ -31,7 +31,7 @@ def recibir_archivo(i):
     identificador = str(i) if i >= 10 else '0'+str(i)
     s.sendto((CLIENTE_LISTO+':'+identificador).encode(), server_address)
     reply, server_address = s.recvfrom(len(CLIENTE_ACEPTADO) + 100)
-    print('El servidor respondió con ', str(reply.decode()))
+    print('El servidor respondió con: ', str(reply.decode()))
     start_time = time.time()
 
     num_packets = file_size//CHUNKS_SIZE + 1
@@ -67,11 +67,11 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                   ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
         s.close()
 
-reply, server_address = s.recvfrom(19)
-reply = reply.decode().split(',')
-num_bytes_CS = int(reply[0])
-num_paquetes_CS = int(reply[1])
+# reply, server_address = socket_principal.recvfrom(19)
+# reply = reply.decode().split(',')
+# num_bytes_CS = int(reply[0])
+# num_paquetes_CS = int(reply[1])
 
-log.info('El número de bytes recibidos es de ' + str(num_bytes_CS))
-log.info('El número de paquetes recibidos es de ' + str(num_paquetes_CS))
+# log.info('El número de bytes recibidos es de ' + str(num_bytes_CS))
+# log.info('El número de paquetes recibidos es de ' + str(num_paquetes_CS))
 socket_principal.close()
