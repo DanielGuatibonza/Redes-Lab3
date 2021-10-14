@@ -7,10 +7,11 @@ PORT = 8081
 SOLICITAR_CONEXION = 'Inicio de transmisión.'
 CLIENTE_ACEPTADO = 'Su conexión fue exitosa.'
 CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos'
-ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.              '
-HASH_INCORRECTO = 'La integridad del archivo se ha visto comprometida.'
+ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.  '
+ARCHIVO_INCORRECTO = 'El archivo no se recibió correctamente'
 
 CHUNKS_SIZE = 4096
+
 
 def recv_all(sock, length):
     data = ''
@@ -18,7 +19,6 @@ def recv_all(sock, length):
         packet = sock.recv(length - len(data))
         more = packet.decode()
         if not more:
-            raise EOFError ('Socket cerrado.')
+            raise EOFError('Socket cerrado.')
         data += more
     return data
-
