@@ -33,7 +33,8 @@ def iniciar_protocolo():
     print ('Se ha aceptado una conexión de', str(clientAddr))
     print ('El socket se conecta desde', (HOST, PORT), 'hacia', str(clientAddr))
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
-    print('El mensaje entrante dice', str(data.decode()))
+    print('El mensaje entrante dice: ', str(data.decode()))
+    print(clientAddr)
     s.sendto(CLIENTE_ACEPTADO.encode(), clientAddr)
     s.settimeout(45)
     addresses[data.decode().split(':')[1]] = clientAddr

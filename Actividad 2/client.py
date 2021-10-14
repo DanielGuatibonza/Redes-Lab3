@@ -22,9 +22,6 @@ log.debug('Archivo a recibir: file' + file_size_MB + '.txt, Tamaño: ' + file_si
 def recibir_archivo(i):
     global file_size, num_clientes, server_address
     s = socket.socket (socket.AF_INET, socket.SOCK_DGRAM)
-    s.bind(('', 0))
-    print('Al cliente {} le fue asignado el socket con nombre {}'.format(i, s.getsockname()))
-    log.debug('Se conectó el cliente identificado como: ' + str(s.getsockname()))
     identificador = str(i) if i >= 10 else '0'+str(i)
     s.sendto((CLIENTE_LISTO+':'+identificador).encode(), server_address)
     reply, server_address = s.recvfrom(len(CLIENTE_ACEPTADO))
