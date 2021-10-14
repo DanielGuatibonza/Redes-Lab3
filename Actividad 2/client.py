@@ -15,7 +15,7 @@ log.setLevel(logging.DEBUG)
 
 socket_principal = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 socket_principal.sendto(SOLICITAR_CONEXION.encode(), (HOST, PORT))
-data, server_address = socket_principal.recvfrom(6)
+data, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
 data = data.decode()
 
 num_clientes = int(data.split(',')[0])
@@ -30,7 +30,7 @@ def recibir_archivo(i):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     identificador = str(i) if i >= 10 else '0'+str(i)
     s.sendto((CLIENTE_LISTO+':'+identificador).encode(), server_address)
-    reply, server_address = s.recvfrom(len(CLIENTE_ACEPTADO) + 100)
+    reply, server_address = s.recvfrom(CHUNKS_SIZE)
     print('El servidor respondió con: ', str(reply.decode()))
     start_time = time.time()
 
@@ -68,7 +68,7 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                   ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
         s.close()
 
-# reply, server_address = socket_principal.recvfrom(19)
+# reply, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
 # reply = reply.decode().split(',')
 # num_bytes_CS = int(reply[0])
 # num_paquetes_CS = int(reply[1])

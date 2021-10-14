@@ -33,13 +33,13 @@ log.debug('Archivo a enviar: ' + file_name +
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((HOST, PORT))
 print('Escuchando en', s.getsockname())
-data, main_client = s.recvfrom(len(SOLICITAR_CONEXION))
+data, main_client = s.recvfrom(CHUNKS_SIZE)
 s.sendto(((num_clientes + ',' + tamano_archivo).encode()), main_client)
 
 
 def iniciar_protocolo():
     global s, addresses
-    data, clientAddr = s.recvfrom(len(CLIENTE_LISTO)+3)
+    data, clientAddr = s.recvfrom(CHUNKS_SIZE)
     print('Se ha aceptado una conexión de', str(clientAddr))
     print('El socket se conecta desde', (HOST, PORT), 'hacia', str(clientAddr))
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
@@ -61,7 +61,7 @@ def enviar_archivo(client_address):
         data = f.read()
         hash_data = hashlib.sha256(data.encode()).hexdigest()
         s.sendto(hash_data.encode(), client_address)
-        ack, client_address = s.recvfrom(len(ARCHIVO_INCORRECTO)+4)
+        ack, client_address = s.recvfrom(CHUNKS_SIZE)
         print('El mensaje entrante dice: ', ack.decode())
         log.debug("El cliente " + str(client_address) +
                   " indicó: " + ack.decode())
