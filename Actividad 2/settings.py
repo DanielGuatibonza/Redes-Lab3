@@ -6,9 +6,9 @@ PORT = 8081
 
 SOLICITAR_CONEXION = 'Inicio de transmisión.'
 CLIENTE_ACEPTADO = 'Su conexión fue exitosa.'
-CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos'
-ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.  '
-ARCHIVO_INCORRECTO = 'El archivo no se recibió correctamente'
+CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos.'
+ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.   '
+ARCHIVO_INCORRECTO = 'El archivo no se recibió correctamente.'
 
 CHUNKS_SIZE = 4096
 

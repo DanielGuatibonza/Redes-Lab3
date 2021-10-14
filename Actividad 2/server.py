@@ -61,7 +61,7 @@ def enviar_archivo(client_address):
         data = f.read()
         hash_data = hashlib.sha256(data.encode()).hexdigest()
         s.sendto(hash_data.encode(), client_address)
-        ack, client_address = s.recvfrom(len(ARCHIVO_RECIBIDO)+3)
+        ack, client_address = s.recvfrom(len(ARCHIVO_INCORRECTO)+3)
         print('El mensaje entrante dice: ', ack.decode())
         log.debug("El cliente " + str(client_address) +
                   " indicó: " + ack.decode())

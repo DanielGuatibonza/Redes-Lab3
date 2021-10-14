@@ -50,8 +50,10 @@ def recibir_archivo(i):
     if len(file_data) == file_size and hash_data == hash_server:
         with open('ArchivosRecibidos/Cliente{}-Prueba-{}.txt'.format(i, num_clientes), 'w') as archivo:
             archivo.write(file_data)
+        print(identificador)
         s.sendto((ARCHIVO_RECIBIDO+':'+identificador).encode(), server_address)
     else:
+        print(identificador)
         s.sendto((ARCHIVO_INCORRECTO+':'+identificador).encode(), server_address)
     return s, len(file_data)
 
