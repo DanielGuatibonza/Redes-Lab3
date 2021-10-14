@@ -35,6 +35,7 @@ def iniciar_protocolo():
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
     print('El mensaje entrante dice', str(data.decode()))
     s.sendto(CLIENTE_ACEPTADO.encode(), clientAddr)
+    s.settimeout(45)
     addresses[data.decode().split(':')[1]] = clientAddr
     return len(addresses)
 
