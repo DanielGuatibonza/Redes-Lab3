@@ -25,10 +25,10 @@ log.setLevel(logging.DEBUG)
 log.debug('Archivo a enviar: ' + file_name +
           ', Tamaño: ' + tamano_archivo + 'MB.')
 
-#archivo_captura = open('capturaTshark.txt', 'wb')
-#txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
-# pcap_captura = subprocess.Popen(
-#    ['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'])
+archivo_captura = open('capturaTshark.txt', 'wb')
+txt_captura = subprocess.Popen(['tshark'], stdout=archivo_captura)
+pcap_captura = subprocess.Popen(
+    ['tshark', '-i', 'ens33', '-w', 'traff.pcap', '-F', 'pcap'])
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.bind((HOST, PORT))
@@ -85,8 +85,8 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                for client_address in addresses.values()}
     for fut in as_completed(futures):
         print(f'El resultado del envío del archivo fue: {fut.result()}')
-# txt_captura.kill()
-# pcap_captura.kill()
+txt_captura.kill()
+pcap_captura.kill()
 
 for client in correct_clients:
     print('El cliente ' + client + ' recibió correctamente el archivo.')
@@ -95,22 +95,22 @@ for client in incorrect_clients:
     print('El cliente ' + client + ' no recibió correctamente el archivo.')
     log.debug('El cliente ' + client + ' no recibió correctamente el archivo.')
 
-# num_bytes_SC = 0
-# num_paquetes_SC = 0
-# num_bytes_CS = 0
-# num_paquetes_CS = 0
-# with open('capturaTshark.txt', 'r') as archivo_completo:
-#     for linea in archivo_completo:
-#         partes = linea.split()
-#         if HOST + ' → ' + CLIENT_HOST in linea:
-#             num_bytes_SC += int(partes[6])
-#             num_paquetes_SC += 1
-#         elif CLIENT_HOST + ' → ' + HOST in linea:
-#             num_bytes_CS += int(partes[6])
-#             num_paquetes_CS += 1
-#     log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
-#     log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
+num_bytes_SC = 0
+num_paquetes_SC = 0
+num_bytes_CS = 0
+num_paquetes_CS = 0
+with open('capturaTshark.txt', 'r') as archivo_completo:
+    for linea in archivo_completo:
+        partes = linea.split()
+        if HOST + ' → ' + CLIENT_HOST in linea:
+            num_bytes_SC += int(partes[6])
+            num_paquetes_SC += 1
+        elif CLIENT_HOST + ' → ' + HOST in linea:
+            num_bytes_CS += int(partes[6])
+            num_paquetes_CS += 1
+    log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
+    log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
 
-# s.sendto(('{:10d},{:8d}'.format(num_bytes_CS,
-#          num_paquetes_CS)).encode(), main_client)
+s.sendto(('{:10d},{:8d}'.format(num_bytes_CS,
+         num_paquetes_CS)).encode(), main_client)
 s.close()

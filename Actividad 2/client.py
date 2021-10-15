@@ -50,7 +50,6 @@ def recibir_archivo(i):
     if len(file_data) == file_size and hash_data == hash_server:
         with open('ArchivosRecibidos/Cliente{}-Prueba-{}.txt'.format(i, num_clientes), 'w') as archivo:
             archivo.write(file_data)
-        print(identificador)
         s.sendto((ARCHIVO_RECIBIDO+':'+identificador).encode(), server_address)
     else:
         print(identificador)
@@ -68,11 +67,11 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                   ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
         s.close()
 
-# reply, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
-# reply = reply.decode().split(',')
-# num_bytes_CS = int(reply[0])
-# num_paquetes_CS = int(reply[1])
+reply, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
+reply = reply.decode().split(',')
+num_bytes_CS = int(reply[0])
+num_paquetes_CS = int(reply[1])
 
-# log.info('El número de bytes recibidos es de ' + str(num_bytes_CS))
-# log.info('El número de paquetes recibidos es de ' + str(num_paquetes_CS))
+log.info('El número de bytes recibidos es de ' + str(num_bytes_CS))
+log.info('El número de paquetes recibidos es de ' + str(num_paquetes_CS))
 socket_principal.close()
