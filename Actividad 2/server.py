@@ -44,7 +44,7 @@ def iniciar_protocolo():
     print('El socket se conecta desde', (HOST, PORT), 'hacia', str(clientAddr))
     log.debug('Se realizó la conexión con el cliente: ' + str(clientAddr))
     print('El mensaje entrante dice: ', str(data.decode()))
-    s.sendto(CLIENTE_ACEPTADO.encode(), clientAddr)
+    s.sendto(CLIENTE_RECONOCIDO.encode(), clientAddr)
     addresses[data.decode().split(':')[1]] = clientAddr
     return len(addresses)
 

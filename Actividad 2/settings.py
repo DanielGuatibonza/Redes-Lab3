@@ -5,7 +5,7 @@ CLIENT_HOST = '192.168.231.1'
 PORT = 8081
 
 SOLICITAR_CONEXION = 'Inicio de transmisión.'
-CLIENTE_ACEPTADO = 'Su conexión fue exitosa.'
+CLIENTE_RECONOCIDO = 'Su conexión fue exitosa.'
 CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos.'
 ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.   '
 ARCHIVO_INCORRECTO = 'El archivo no se recibió correctamente.'

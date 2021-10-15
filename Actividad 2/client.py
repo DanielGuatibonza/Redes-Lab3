@@ -15,6 +15,8 @@ log.setLevel(logging.DEBUG)
 
 socket_principal = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 socket_principal.sendto(SOLICITAR_CONEXION.encode(), (HOST, PORT))
+
+# Recepción del tamaño del archivo y el número de clientes
 data, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
 data = data.decode()
 
@@ -30,13 +32,16 @@ def recibir_archivo(i):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     identificador = str(i) if i >= 10 else '0'+str(i)
     s.sendto((CLIENTE_LISTO+':'+identificador).encode(), server_address)
+
+    # Confirmación del servidor de que el cliente fue reconocido
     reply, server_address = s.recvfrom(CHUNKS_SIZE)
     print('El servidor respondió con: ', str(reply.decode()))
     start_time = time.time()
 
-    file_data = ""
-    file_chunk = ""
+    file_data = ''
+    file_chunk = ''
     while(True):
+        # Recepción de paquetes del archivo
         file_chunk, server_address = s.recvfrom(CHUNKS_SIZE)
         if (len(file_chunk) != 64):
             file_data += file_chunk.decode()
@@ -47,12 +52,11 @@ def recibir_archivo(i):
               str(s.getsockname()) + ' fue de ' + str(time.time() - start_time) + ' segundos.')
     hash_data = hashlib.sha256(file_data.encode()).hexdigest()
     hash_server = file_chunk
+    with open('ArchivosRecibidos/Cliente{}-Prueba-{}.txt'.format(i, num_clientes), 'w') as archivo:
+        archivo.write(file_data)
     if len(file_data) == file_size and hash_data == hash_server:
-        with open('ArchivosRecibidos/Cliente{}-Prueba-{}.txt'.format(i, num_clientes), 'w') as archivo:
-            archivo.write(file_data)
         s.sendto((ARCHIVO_RECIBIDO+':'+identificador).encode(), server_address)
     else:
-        print(identificador)
         s.sendto((ARCHIVO_INCORRECTO+':'+identificador).encode(), server_address)
     return s, len(file_data)
 
@@ -67,11 +71,6 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                   ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
         s.close()
 
-reply, server_address = socket_principal.recvfrom(CHUNKS_SIZE)
-reply = reply.decode().split(',')
-num_bytes_CS = int(reply[0])
-num_paquetes_CS = int(reply[1])
-
-log.info('El número de bytes recibidos es de ' + str(num_bytes_CS))
-log.info('El número de paquetes recibidos es de ' + str(num_paquetes_CS))
+log.info('El número de bytes recibidos es de ' + str(num_bytes))
+log.info('El número de paquetes recibidos es de ' + str(num_paquetes))
 socket_principal.close()
