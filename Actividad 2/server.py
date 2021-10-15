@@ -68,9 +68,9 @@ def enviar_archivo(client_address):
         partes = ack.decode().split(":")
         print(partes)
         if partes[0] == ARCHIVO_RECIBIDO:
-            correct_clients.append(partes[1])
+            correct_clients.append(partes[1] + " " + client_address)
         elif partes[0] == ARCHIVO_INCORRECTO:
-            incorrect_clients.append(partes[1])
+            incorrect_clients.append(partes[1] + " " + client_address)
     log.debug('El tiempo de transferencia del archivo al cliente ' +
               str(client_address) + ' fue de ' + str(time.time() - tiempo_inicio) + ' segundos.')
     return ack
@@ -97,20 +97,13 @@ for client in incorrect_clients:
 
 num_bytes_SC = 0
 num_paquetes_SC = 0
-num_bytes_CS = 0
-num_paquetes_CS = 0
 with open('capturaTshark.txt', 'r') as archivo_completo:
     for linea in archivo_completo:
         partes = linea.split()
         if HOST + ' → ' + CLIENT_HOST in linea:
             num_bytes_SC += int(partes[6])
             num_paquetes_SC += 1
-        elif CLIENT_HOST + ' → ' + HOST in linea:
-            num_bytes_CS += int(partes[6])
-            num_paquetes_CS += 1
     log.info('El número de paquetes enviados fue: ' + str(num_paquetes_SC))
     log.info('El número de bytes enviados fue: ' + str(num_bytes_SC))
 
-s.sendto(('{:10d},{:8d}'.format(num_bytes_CS,
-         num_paquetes_CS)).encode(), main_client)
 s.close()

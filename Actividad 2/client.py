@@ -48,7 +48,7 @@ def recibir_archivo(i):
         else:
             break
 
-    log.debug('El tiempo de transferencia del archivo al cliente ' +
+    log.debug('El tiempo de transferencia del archivo al cliente ' + identificador + " " +
               str(s.getsockname()) + ' fue de ' + str(time.time() - start_time) + ' segundos.')
     hash_data = hashlib.sha256(file_data.encode()).hexdigest()
     hash_server = file_chunk
@@ -56,8 +56,16 @@ def recibir_archivo(i):
         archivo.write(file_data)
     if len(file_data) == file_size and hash_data == hash_server:
         s.sendto((ARCHIVO_RECIBIDO+':'+identificador).encode(), server_address)
+        print('El cliente ' + identificador + " " + str(s.getsockname()) +
+              ' recibió correctamente el archivo.')
+        log.debug('El cliente ' + identificador + " " +
+                  str(s.getsockname()) + ' recibió correctamente el archivo.')
     else:
         s.sendto((ARCHIVO_INCORRECTO+':'+identificador).encode(), server_address)
+        print('El cliente ' + identificador + " " + str(s.getsockname()) +
+              ' no recibió correctamente el archivo.')
+        log.debug('El cliente ' + identificador + " " +
+                  str(s.getsockname()) + ' no recibió correctamente el archivo.')
     return s, len(file_data)
 
 
@@ -71,6 +79,4 @@ with ThreadPoolExecutor(max_workers=25) as pool:
                   ' recibió correctamente ' + str(bytes_recibidos) + ' bytes del archivo.')
         s.close()
 
-log.info('El número de bytes recibidos es de ' + str(num_bytes))
-log.info('El número de paquetes recibidos es de ' + str(num_paquetes))
 socket_principal.close()
