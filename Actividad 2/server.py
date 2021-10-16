@@ -89,10 +89,8 @@ txt_captura.kill()
 pcap_captura.kill()
 
 for client in correct_clients:
-    print('El cliente ' + client + ' recibió correctamente el archivo.')
     log.debug('El cliente ' + client + ' recibió correctamente el archivo.')
 for client in incorrect_clients:
-    print('El cliente ' + client + ' no recibió correctamente el archivo.')
     log.debug('El cliente ' + client + ' no recibió correctamente el archivo.')
 
 num_bytes_SC = 0

@@ -10,7 +10,7 @@ CLIENTE_LISTO = 'Actualmente me encuentro activo para recibir archivos.'
 ARCHIVO_RECIBIDO = 'El archivo se recibió correctamente.   '
 ARCHIVO_INCORRECTO = 'El archivo no se recibió correctamente.'
 
-CHUNKS_SIZE = 4096
+CHUNKS_SIZE = 1024
 
 
 def recv_all(sock, length):
