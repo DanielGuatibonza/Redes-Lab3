@@ -1,0 +1,43 @@
+2021-10-16 03:13:40,541 - DEBUG - Archivo a enviar: ArchivosServidor/file250.txt, Tamaño: 250MB.
+2021-10-16 03:13:44,137 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56218)
+2021-10-16 03:13:44,139 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56219)
+2021-10-16 03:13:44,140 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56224)
+2021-10-16 03:13:44,143 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56225)
+2021-10-16 03:13:44,144 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56223)
+2021-10-16 03:13:44,149 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56222)
+2021-10-16 03:13:44,150 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56226)
+2021-10-16 03:13:44,154 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56227)
+2021-10-16 03:13:44,155 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56220)
+2021-10-16 03:13:44,162 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 56221)
+2021-10-16 03:14:27,322 - DEBUG - El cliente ('192.168.231.1', 56219) indicó: El archivo no se recibió correctamente.:02
+2021-10-16 03:14:27,322 - DEBUG - El cliente ('192.168.231.1', 56224) indicó: El archivo no se recibió correctamente.:07
+2021-10-16 03:14:27,454 - DEBUG - El cliente ('192.168.231.1', 56221) indicó: El archivo no se recibió correctamente.:04
+2021-10-16 03:14:48,897 - DEBUG - El cliente ('192.168.231.1', 56225) indicó: El archivo no se recibió correctamente.:08
+2021-10-16 03:14:49,454 - DEBUG - El cliente ('192.168.231.1', 56220) indicó: El archivo no se recibió correctamente.:03
+2021-10-16 03:14:49,455 - DEBUG - El cliente ('192.168.231.1', 56218) indicó: El archivo no se recibió correctamente.:01
+2021-10-16 03:14:49,459 - DEBUG - El cliente ('192.168.231.1', 56227) indicó: El archivo no se recibió correctamente.:10
+2021-10-16 03:14:51,437 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56219) fue de 67.2689220905304 segundos.
+2021-10-16 03:14:51,438 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56224) fue de 67.27286458015442 segundos.
+2021-10-16 03:14:51,440 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56221) fue de 67.2193546295166 segundos.
+2021-10-16 03:14:51,441 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56225) fue de 67.26335740089417 segundos.
+2021-10-16 03:14:51,442 - DEBUG - El cliente ('192.168.231.1', 56222) indicó: El archivo no se recibió correctamente.:05
+2021-10-16 03:14:51,442 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56218) fue de 67.25682067871094 segundos.
+2021-10-16 03:14:51,448 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56227) fue de 67.26177740097046 segundos.
+2021-10-16 03:14:51,449 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56220) fue de 67.25045704841614 segundos.
+2021-10-16 03:14:51,602 - DEBUG - El cliente ('192.168.231.1', 56223) indicó: El archivo no se recibió correctamente.:06
+2021-10-16 03:14:51,615 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56222) fue de 67.42055606842041 segundos.
+2021-10-16 03:14:52,598 - DEBUG - El cliente ('192.168.231.1', 56226) indicó: El archivo no se recibió correctamente.:09
+2021-10-16 03:14:53,238 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56223) fue de 69.06556153297424 segundos.
+2021-10-16 03:14:53,503 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 56226) fue de 69.32131457328796 segundos.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 02 ('192.168.231.1', 56219) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 07 ('192.168.231.1', 56224) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 04 ('192.168.231.1', 56221) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 08 ('192.168.231.1', 56225) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 01 ('192.168.231.1', 56218) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 10 ('192.168.231.1', 56227) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 03 ('192.168.231.1', 56220) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 05 ('192.168.231.1', 56222) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 06 ('192.168.231.1', 56223) no recibió correctamente el archivo.
+2021-10-16 03:14:54,933 - DEBUG - El cliente 09 ('192.168.231.1', 56226) no recibió correctamente el archivo.
+2021-10-16 03:14:55,830 - INFO - El número de paquetes enviados fue: 620756
+2021-10-16 03:14:55,830 - INFO - El número de bytes enviados fue: 661714888

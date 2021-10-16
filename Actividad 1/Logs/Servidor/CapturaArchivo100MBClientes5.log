@@ -1,0 +1,19 @@
+2021-10-03 03:25:58,365 - DEBUG - Archivo a enviar: ArchivosServidor/file100.txt, Tamaño: 100MB.
+2021-10-03 03:26:02,603 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 51211)
+2021-10-03 03:26:02,605 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 51213)
+2021-10-03 03:26:02,607 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 51214)
+2021-10-03 03:26:02,619 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 51212)
+2021-10-03 03:26:02,621 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 51215)
+2021-10-03 03:26:16,095 - DEBUG - El cliente ('192.168.231.1', 51212) respondió: El archivo se recibió correctamente.              
+2021-10-03 03:26:16,099 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 51212) fue de 13.45767068862915 segundos.
+2021-10-03 03:26:18,258 - DEBUG - El cliente ('192.168.231.1', 51215) respondió: El archivo se recibió correctamente.              
+2021-10-03 03:26:18,258 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 51215) fue de 15.62363862991333 segundos.
+2021-10-03 03:26:19,836 - DEBUG - El cliente ('192.168.231.1', 51214) respondió: El archivo se recibió correctamente.              
+2021-10-03 03:26:19,836 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 51214) fue de 17.2024028301239 segundos.
+2021-10-03 03:26:19,853 - DEBUG - El cliente ('192.168.231.1', 51211) respondió: El archivo se recibió correctamente.              
+2021-10-03 03:26:19,854 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 51211) fue de 17.22134494781494 segundos.
+2021-10-03 03:26:20,122 - DEBUG - El cliente ('192.168.231.1', 51213) respondió: El archivo se recibió correctamente.              
+2021-10-03 03:26:20,123 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 51213) fue de 17.496930837631226 segundos.
+2021-10-03 03:26:25,253 - INFO - El número de paquetes enviados fue: 18974
+2021-10-03 03:26:25,253 - INFO - El número de bytes enviados fue: 519755963
+2021-10-03 03:26:25,255 - INFO - El número de paquetes retransmitidos fue: 531

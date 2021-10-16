@@ -1,0 +1,33 @@
+2021-10-03 13:48:55,473 - DEBUG - Archivo a recibir: file250.txt, Tamaño: 250MB.
+2021-10-03 13:48:55,474 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54642)
+2021-10-03 13:48:55,475 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54643)
+2021-10-03 13:48:55,475 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54644)
+2021-10-03 13:48:55,475 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54645)
+2021-10-03 13:48:55,476 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54646)
+2021-10-03 13:48:55,476 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54648)
+2021-10-03 13:48:55,477 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54649)
+2021-10-03 13:48:55,477 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54647)
+2021-10-03 13:48:55,477 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54650)
+2021-10-03 13:48:55,477 - DEBUG - Se conectó el cliente identificado como: ('192.168.231.1', 54651)
+2021-10-03 13:50:20,225 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54643) fue de 84.74179768562317 segundos.
+2021-10-03 13:50:21,733 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54648) fue de 86.2178544998169 segundos.
+2021-10-03 13:50:25,337 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54650) fue de 89.8382203578949 segundos.
+2021-10-03 13:50:25,393 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54644) fue de 89.90902853012085 segundos.
+2021-10-03 13:50:29,691 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54651) fue de 94.19679474830627 segundos.
+2021-10-03 13:50:30,524 - DEBUG - El cliente ('192.168.231.1', 54643) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:30,933 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54646) fue de 95.40152597427368 segundos.
+2021-10-03 13:50:31,148 - DEBUG - El cliente ('192.168.231.1', 54648) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:38,255 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54647) fue de 102.76522517204285 segundos.
+2021-10-03 13:50:39,612 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54649) fue de 104.08569550514221 segundos.
+2021-10-03 13:50:39,612 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54642) fue de 104.12558817863464 segundos.
+2021-10-03 13:50:55,386 - DEBUG - El cliente ('192.168.231.1', 54650) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:57,670 - DEBUG - El cliente ('192.168.231.1', 54644) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:57,848 - DEBUG - El cliente ('192.168.231.1', 54651) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:59,532 - DEBUG - El cliente ('192.168.231.1', 54647) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:59,589 - DEBUG - El cliente ('192.168.231.1', 54646) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:50:59,650 - DEBUG - El cliente ('192.168.231.1', 54642) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:51:00,155 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 54645) fue de 124.66126799583435 segundos.
+2021-10-03 13:51:00,253 - DEBUG - El cliente ('192.168.231.1', 54649) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:51:07,223 - DEBUG - El cliente ('192.168.231.1', 54645) recibió correctamente 262144000 bytes del archivo.
+2021-10-03 13:51:13,608 - INFO - El número de bytes recibidos fue: 2327158694 bytes.
+2021-10-03 13:51:13,608 - INFO - El número de paquetes recibidos fue: 62735

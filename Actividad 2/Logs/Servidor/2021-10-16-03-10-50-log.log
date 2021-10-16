@@ -1,0 +1,23 @@
+2021-10-16 03:10:50,413 - DEBUG - Archivo a enviar: ArchivosServidor/file100.txt, Tamaño: 100MB.
+2021-10-16 03:10:54,111 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 57311)
+2021-10-16 03:10:54,113 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 57313)
+2021-10-16 03:10:54,115 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 57314)
+2021-10-16 03:10:54,118 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 57312)
+2021-10-16 03:10:54,121 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 57315)
+2021-10-16 03:11:02,274 - DEBUG - El cliente ('192.168.231.1', 57315) indicó: El archivo no se recibió correctamente.:05
+2021-10-16 03:11:02,275 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 57315) fue de 8.139901638031006 segundos.
+2021-10-16 03:11:03,037 - DEBUG - El cliente ('192.168.231.1', 57313) indicó: El archivo no se recibió correctamente.:03
+2021-10-16 03:11:03,038 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 57313) fue de 8.915063858032227 segundos.
+2021-10-16 03:11:03,348 - DEBUG - El cliente ('192.168.231.1', 57312) indicó: El archivo no se recibió correctamente.:02
+2021-10-16 03:11:03,349 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 57312) fue de 9.214967966079712 segundos.
+2021-10-16 03:11:03,858 - DEBUG - El cliente ('192.168.231.1', 57314) indicó: El archivo no se recibió correctamente.:04
+2021-10-16 03:11:03,859 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 57314) fue de 9.729535341262817 segundos.
+2021-10-16 03:11:04,173 - DEBUG - El cliente ('192.168.231.1', 57311) indicó: El archivo no se recibió correctamente.:01
+2021-10-16 03:11:04,174 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 57311) fue de 10.051061630249023 segundos.
+2021-10-16 03:11:04,181 - DEBUG - El cliente 05 ('192.168.231.1', 57315) no recibió correctamente el archivo.
+2021-10-16 03:11:04,181 - DEBUG - El cliente 03 ('192.168.231.1', 57313) no recibió correctamente el archivo.
+2021-10-16 03:11:04,181 - DEBUG - El cliente 02 ('192.168.231.1', 57312) no recibió correctamente el archivo.
+2021-10-16 03:11:04,181 - DEBUG - El cliente 04 ('192.168.231.1', 57314) no recibió correctamente el archivo.
+2021-10-16 03:11:04,181 - DEBUG - El cliente 01 ('192.168.231.1', 57311) no recibió correctamente el archivo.
+2021-10-16 03:11:04,529 - INFO - El número de paquetes enviados fue: 260253
+2021-10-16 03:11:04,529 - INFO - El número de bytes enviados fue: 277423685

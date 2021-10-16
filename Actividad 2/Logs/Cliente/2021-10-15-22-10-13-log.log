@@ -1,0 +1,4 @@
+2021-10-15 22:10:13,048 - DEBUG - Archivo a recibir: file250.txt, Tamaño: 250MB.
+2021-10-15 22:10:23,150 - DEBUG - El tiempo de transferencia del archivo al cliente 01 ('0.0.0.0', 63909) fue de 10.098122835159302 segundos.
+2021-10-15 22:10:23,291 - DEBUG - El cliente 01 ('0.0.0.0', 63909) no recibió correctamente el archivo.
+2021-10-15 22:10:23,293 - DEBUG - El cliente ('0.0.0.0', 63909) recibió correctamente 15179776 bytes del archivo.

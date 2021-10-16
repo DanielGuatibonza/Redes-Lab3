@@ -1,9 +1,9 @@
 Actividad 1/ArchivosServidor/file*.txt
-Actividad 1/Logs
+#Actividad 1/Logs
 Actividad 1/Capturas de trafico
-Actividad 1/ArchivosRecibidos
+Actividad 1/ArchivosRecibidos/Cliente*.txt
 Actividad 2/ArchivosServidor/file*.txt
-Actividad 2/Logs
+#Actividad 2/Logs
 Actividad 2/Capturas de trafico
-Actividad 2/ArchivosRecibidos
+Actividad 2/ArchivosRecibidos/Cliente*.txt
 traff.pcap

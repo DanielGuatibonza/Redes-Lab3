@@ -1,0 +1,16 @@
+2021-10-15 22:10:54,717 - DEBUG - Archivo a recibir: file100.txt, Tamaño: 100MB.
+2021-10-15 22:11:02,765 - DEBUG - El tiempo de transferencia del archivo al cliente 05 ('0.0.0.0', 57315) fue de 8.034754753112793 segundos.
+2021-10-15 22:11:02,885 - DEBUG - El cliente 05 ('0.0.0.0', 57315) no recibió correctamente el archivo.
+2021-10-15 22:11:02,899 - DEBUG - El cliente ('0.0.0.0', 57315) recibió correctamente 5908480 bytes del archivo.
+2021-10-15 22:11:03,535 - DEBUG - El tiempo de transferencia del archivo al cliente 03 ('0.0.0.0', 57313) fue de 8.810204029083252 segundos.
+2021-10-15 22:11:03,656 - DEBUG - El cliente 03 ('0.0.0.0', 57313) no recibió correctamente el archivo.
+2021-10-15 22:11:03,665 - DEBUG - El cliente ('0.0.0.0', 57313) recibió correctamente 6349824 bytes del archivo.
+2021-10-15 22:11:03,877 - DEBUG - El tiempo de transferencia del archivo al cliente 02 ('0.0.0.0', 57312) fue de 9.148821830749512 segundos.
+2021-10-15 22:11:03,960 - DEBUG - El cliente 02 ('0.0.0.0', 57312) no recibió correctamente el archivo.
+2021-10-15 22:11:03,969 - DEBUG - El cliente ('0.0.0.0', 57312) recibió correctamente 6287360 bytes del archivo.
+2021-10-15 22:11:04,340 - DEBUG - El tiempo de transferencia del archivo al cliente 04 ('0.0.0.0', 57314) fue de 9.61335802078247 segundos.
+2021-10-15 22:11:04,417 - DEBUG - El cliente 04 ('0.0.0.0', 57314) no recibió correctamente el archivo.
+2021-10-15 22:11:04,418 - DEBUG - El cliente ('0.0.0.0', 57314) recibió correctamente 6216704 bytes del archivo.
+2021-10-15 22:11:04,704 - DEBUG - El tiempo de transferencia del archivo al cliente 01 ('0.0.0.0', 57311) fue de 9.980379581451416 segundos.
+2021-10-15 22:11:04,780 - DEBUG - El cliente 01 ('0.0.0.0', 57311) no recibió correctamente el archivo.
+2021-10-15 22:11:04,781 - DEBUG - El cliente ('0.0.0.0', 57311) recibió correctamente 7667712 bytes del archivo.

@@ -1,0 +1,7 @@
+2021-10-16 03:08:48,971 - DEBUG - Archivo a enviar: ArchivosServidor/file100.txt, Tamaño: 100MB.
+2021-10-16 03:08:52,384 - DEBUG - Se realizó la conexión con el cliente: ('192.168.231.1', 55178)
+2021-10-16 03:08:56,321 - DEBUG - El cliente ('192.168.231.1', 55178) indicó: El archivo no se recibió correctamente.:01
+2021-10-16 03:08:56,321 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 55178) fue de 3.936584234237671 segundos.
+2021-10-16 03:08:56,327 - DEBUG - El cliente 01 ('192.168.231.1', 55178) no recibió correctamente el archivo.
+2021-10-16 03:08:56,453 - INFO - El número de paquetes enviados fue: 102370
+2021-10-16 03:08:56,453 - INFO - El número de bytes enviados fue: 109124403

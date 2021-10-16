@@ -1,0 +1,6 @@
+2021-10-02 20:10:16,755 - DEBUG - Archivo a recibir: file250.txt, Tama�o: 250MB.
+2021-10-02 20:10:16,757 - DEBUG - Se conect� el cliente identificado como: ('192.168.231.1', 65213)
+2021-10-02 20:10:28,453 - DEBUG - El tiempo de transferencia del archivo al cliente ('192.168.231.1', 65213) fue de 11.695195436477661 segundos.
+2021-10-02 20:10:31,945 - DEBUG - El cliente ('192.168.231.1', 65213) recibi� correctamente 262144000 bytes del archivo.
+2021-10-02 20:10:36,976 - INFO - El n�mero de bytes recibidos fue: 262387649 bytes.
+2021-10-02 20:10:36,976 - INFO - El n�mero de paquetes recibidos fue: 4511
