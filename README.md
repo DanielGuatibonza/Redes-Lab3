@@ -6,7 +6,7 @@ Para instalar los aplicativos de cliente y servidor, únicamente se requiere clo
     > sudo apt-get install -y tshark
     
 ## Ejecución de los programas
-En primer lugar, previo a la ejecución de cualquiera de los servicios, es necesario editar los parámetros de configuración para la conexión entre ambos equipos. De esta forma, se deben editar, tanto en el cliente como en el servidor, las constantes HOST y CLIENT_HOST el archivo *settings.py* para que estas correspondan con las direcciones IP del equipo servidor y cliente respectivamente.
+El repositorio cuenta con dos implementaciones para la transferencia de archivos: TCP (Actividad 1) y UDP (Actividad 2). De acuerdo a la implementación que se desee probar, es decir, dentro de la carpeta respectiva, es necesario editar los parámetros de configuración para la conexión entre ambos equipos previo a la ejecución de cualquiera de los servicios. De esta forma, se deben editar, tanto en el cliente como en el servidor, las constantes HOST y CLIENT_HOST el archivo *settings.py* para que estas correspondan con las direcciones IP del equipo servidor y cliente respectivamente.
 
 ### Servidor
 Antes de poder ejecutar el aplicativo del servidor, en la carpeta "ArchivosServidor" se deben encontrar los archivos que se desean transmitir. Estos archivos deben estar nombrados de la forma *file<numMB>.txt* donde *<numMB>* corresponde al número de mega-bytes del archivo. Para generar estos archivos se desarrolló el programa *crear_archivos.py* que se encarga de crear el archivo de texto dentro de esta carpeta del tamaño que se le especifique a la hora de su ejecución. Considerando que este programa fue desarrollado también en Python, basta con ejecutar el siguiente comando para utilizarlo.
