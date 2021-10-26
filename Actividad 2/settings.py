@@ -1,5 +1,5 @@
 import socket
-HOST = '192.168.231.132'
+HOST = '192.168.231.128'
 CLIENT_HOST = '192.168.231.1'
 #HOST = '127.0.0.1'
 PORT = 8081
